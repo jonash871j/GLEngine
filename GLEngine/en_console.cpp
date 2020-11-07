@@ -67,7 +67,6 @@ namespace Engine
 				continue;
 			}
 
-
 			if (i == 0)
 				printf("       -> ");
 

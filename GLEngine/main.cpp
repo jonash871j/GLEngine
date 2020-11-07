@@ -1,5 +1,6 @@
 #include <iostream>
 #include "engine.h"
+#include <GL/glew.h>
 
 using namespace Engine;
 
@@ -10,21 +11,28 @@ int main()
 
 	Window window(800, 600, "Program");
 	Renderer& renderer = window.GetRenderer();
+	Input& input = window.GetInput();
 
-	ShaderProgram shaderProgram;
-	Shader shaderFragment("fragment_core.shader", Shader::Type::Fragment, shaderProgram);
-	Shader shaderCore("vertex_core.shader", Shader::Type::Vertex, shaderProgram);
-	shaderProgram.Link();
+	ShaderProgram coreProgram;
+	Shader shaFragment("fragment_core.shader", Shader::Type::Fragment, coreProgram);
+	Shader shaCore("vertex_core.shader", Shader::Type::Vertex, coreProgram);
+	coreProgram.Link();
+
 
 	while (!window.GetIsClosed())
 	{
 		renderer.Clear();
 		
-		renderer.Color(0, 0, 32);
+		if (input.KeyPressed(Key::Escape))
+			window.Close();
+
+		renderer.Color(32, 32, 64);
 		renderer.Background();
 
 		renderer.Color(255, 255, 255);
-		//renderer.Line(32, rand() % 255, rand() % 255, 123);
+		renderer.Line(0.5f, 0.5f, 1.0f, 1.0f);
+
+		glUseProgram(coreProgram.GetId());
 
 		window.Update();
 	}

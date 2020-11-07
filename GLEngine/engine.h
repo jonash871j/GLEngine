@@ -7,7 +7,10 @@
 #include "en_core.h"
 
 #include "en_renderer.h"
+#include "en_input.h"
 #include "en_window.h"
 
 #include "en_shader_program.h"
 #include "en_shader.h"
+
+#include "en_vertex.h"

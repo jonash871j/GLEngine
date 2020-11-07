@@ -16,8 +16,5 @@ namespace Engine
 		static void PrintSuccess(const char* format, ...);
 		static void PrintBuffer(char* buffer, int32_t length);
 		static void PrintMsg(const char* format, ...);
-
-	public:
-		static void GetBuffer();
 	};
 }

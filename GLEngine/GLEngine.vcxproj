@@ -153,12 +153,14 @@
   <ItemGroup>
     <ClCompile Include="en_console.cpp" />
     <ClCompile Include="en_core.cpp" />
+    <ClCompile Include="en_input.cpp" />
     <ClCompile Include="en_math.cpp" />
     <ClCompile Include="en_renderer.cpp" />
     <ClCompile Include="en_shader.cpp" />
     <ClCompile Include="en_shader_program.cpp" />
     <ClCompile Include="en_vector2d.cpp" />
     <ClCompile Include="en_vector3d.cpp" />
+    <ClCompile Include="en_vertex.cpp" />
     <ClCompile Include="en_window.cpp" />
     <ClCompile Include="main.cpp" />
   </ItemGroup>
@@ -167,12 +169,15 @@
     <ClInclude Include="en_console.h" />
     <ClInclude Include="en_core.h" />
     <ClInclude Include="en_def.h" />
+    <ClInclude Include="en_error.h" />
+    <ClInclude Include="en_input.h" />
     <ClInclude Include="en_math.h" />
     <ClInclude Include="en_renderer.h" />
     <ClInclude Include="en_shader.h" />
     <ClInclude Include="en_shader_program.h" />
     <ClInclude Include="en_vector2d.h" />
     <ClInclude Include="en_vector3d.h" />
+    <ClInclude Include="en_vertex.h" />
     <ClInclude Include="en_window.h" />
   </ItemGroup>
   <ItemGroup>

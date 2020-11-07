@@ -3,6 +3,7 @@
 
 #include <GL/glew.h>
 #include <glfw3.h>
+#include <stdlib.h>
 
 namespace Engine
 {
@@ -21,17 +22,18 @@ namespace Engine
 		GLFW_CALL(glfwWindowHint(GLFW_CONTEXT_VERSION_MAJOR, 4));
 		GLFW_CALL(glfwWindowHint(GLFW_CONTEXT_VERSION_MINOR, 4));
 		GLFW_CALL(glfwWindowHint(GLFW_RESIZABLE, false));
-		GLFW_CALL(glWindow = glfwCreateWindow(width, height, title, NULL, NULL));
+		GLFW_CALL(glfwWindow = glfwCreateWindow(width, height, title, NULL, NULL));
 
-		renderer.UpdateProperties(this);
-		renderer.Target();
-
+		Target();
 		if (glewInit() != GLEW_OK)
 		{
 			Console::PrintError("Couldn't initialize glewInit");
 			abort();
 		}
 		isGlewInitialized = true;
+
+		renderer.UpdateProperties(this);
+		input.UpdateProperties(this);
 
 		Console::PrintSuccess("Window was created as %s %ix%i ", title, width, height);
 		Console::PrintMsg("OpenGL version: %s", glGetString(GL_VERSION));
@@ -42,7 +44,7 @@ namespace Engine
 	}
 	Window::~Window()
 	{
-		GLFW_CALL(glfwDestroyWindow(glWindow));
+		GLFW_CALL(glfwDestroyWindow(glfwWindow));
 		GLFW_CALL(glfwTerminate());
 	}
 
@@ -50,7 +52,9 @@ namespace Engine
 	{
 		renderer.Clear();
 		GLFW_CALL(glfwPollEvents());
-		GLFW_CALL(isClosed = glfwWindowShouldClose(glWindow));
+
+		if (!isClosed)
+			GLFW_CALL(isClosed = glfwWindowShouldClose(glfwWindow));
 
 		if (isClosed)
 			Console::PrintMsg("Window is closing...");
@@ -59,15 +63,25 @@ namespace Engine
 	{
 		renderer.Update();
 	}
+	void Window::UpdateInput()
+	{
+		input.Update();
+	}
 	void Window::Update()
 	{
-		UpdateEvents();
 		UpdateRenderer();
+		UpdateEvents();
+		UpdateInput();
 	}
 
 	void Window::Target()
 	{
-		renderer.Target();
+		GLFW_CALL(glfwMakeContextCurrent(glfwWindow));
+	}
+
+	void Window::Close()
+	{
+		isClosed = true;
 	}
 
 	bool Window::GetIsGLEWInitialized()
@@ -82,6 +96,14 @@ namespace Engine
 	Renderer& Window::GetRenderer()
 	{
 		return renderer;
+	}
+	Input& Window::GetInput()
+	{
+		return input;
+	}
+	GLFWwindow* Window::GetGLFWWindow()
+	{
+		return glfwWindow;
 	}
 }
 

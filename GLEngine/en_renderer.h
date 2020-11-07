@@ -3,22 +3,23 @@
 
 namespace Engine
 {
-	class Window;
-
 	class Renderer
 	{
 		friend class Window;
 	private:
-		Window* window;
-		float w;
-		float h;
+		Window* window = nullptr;
+		float w = 0;
+		float h = 0;
 		struct c
 		{
 			uint8_t r;
 			uint8_t g;
 			uint8_t b;
 			uint8_t a;
-		}c;
+		}c = { 0, 0, 0, 0 };
+
+	private:
+		Renderer();
 
 	private:
 		void UpdateProperties(Window* window);
@@ -26,10 +27,10 @@ namespace Engine
 	public:
 		void Color(uint8_t r, uint8_t g, uint8_t b, uint8_t a = 255);
 		void Background();
+		void Line(int32_t x1, int32_t y1, int32_t x2, int32_t y2);
 		void Line(float x1, float y1, float x2, float y2);
 
 	public:
-		void Target();
 		void Update();
 		void Clear();
 	};

@@ -3,7 +3,7 @@
 
 namespace Engine
 {
-	class Vector3D
+	struct Vector3D
 	{
 	public:
 		float x, y, z;
@@ -25,6 +25,3 @@ namespace Engine
 		Vector3D& operator /= (const float& rhs);
 	};
 }
-
-
-

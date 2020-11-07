@@ -4,16 +4,10 @@
     <ClCompile Include="en_math.cpp">
       <Filter>Engine</Filter>
     </ClCompile>
-    <ClCompile Include="en_renderer.cpp">
-      <Filter>Engine</Filter>
-    </ClCompile>
     <ClCompile Include="en_vector2d.cpp">
       <Filter>Engine</Filter>
     </ClCompile>
     <ClCompile Include="en_vector3d.cpp">
-      <Filter>Engine</Filter>
-    </ClCompile>
-    <ClCompile Include="en_window.cpp">
       <Filter>Engine</Filter>
     </ClCompile>
     <ClCompile Include="main.cpp" />
@@ -29,6 +23,18 @@
     <ClCompile Include="en_console.cpp">
       <Filter>Engine</Filter>
     </ClCompile>
+    <ClCompile Include="en_renderer.cpp">
+      <Filter>Engine\Window</Filter>
+    </ClCompile>
+    <ClCompile Include="en_window.cpp">
+      <Filter>Engine\Window</Filter>
+    </ClCompile>
+    <ClCompile Include="en_input.cpp">
+      <Filter>Engine\Window</Filter>
+    </ClCompile>
+    <ClCompile Include="en_vertex.cpp">
+      <Filter>Engine</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="en_def.h">
@@ -37,16 +43,10 @@
     <ClInclude Include="en_math.h">
       <Filter>Engine</Filter>
     </ClInclude>
-    <ClInclude Include="en_renderer.h">
-      <Filter>Engine</Filter>
-    </ClInclude>
     <ClInclude Include="en_vector2d.h">
       <Filter>Engine</Filter>
     </ClInclude>
     <ClInclude Include="en_vector3d.h">
-      <Filter>Engine</Filter>
-    </ClInclude>
-    <ClInclude Include="en_window.h">
       <Filter>Engine</Filter>
     </ClInclude>
     <ClInclude Include="en_shader.h">
@@ -64,6 +64,21 @@
     <ClInclude Include="en_console.h">
       <Filter>Engine</Filter>
     </ClInclude>
+    <ClInclude Include="en_renderer.h">
+      <Filter>Engine\Window</Filter>
+    </ClInclude>
+    <ClInclude Include="en_window.h">
+      <Filter>Engine\Window</Filter>
+    </ClInclude>
+    <ClInclude Include="en_input.h">
+      <Filter>Engine\Window</Filter>
+    </ClInclude>
+    <ClInclude Include="en_error.h">
+      <Filter>Engine</Filter>
+    </ClInclude>
+    <ClInclude Include="en_vertex.h">
+      <Filter>Engine</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <Filter Include="Engine">
@@ -71,6 +86,9 @@
     </Filter>
     <Filter Include="Engine\Shaders">
       <UniqueIdentifier>{99f08ded-87de-4ec6-96c3-45e378556798}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Engine\Window">
+      <UniqueIdentifier>{b3e33e87-615b-4ff8-b902-c85d5c5bbf52}</UniqueIdentifier>
     </Filter>
   </ItemGroup>
   <ItemGroup>

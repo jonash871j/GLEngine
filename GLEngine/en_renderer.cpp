@@ -6,6 +6,9 @@
 
 namespace Engine
 {
+	Renderer::Renderer()
+	{
+	}
 	void Renderer::UpdateProperties(Window* window)
 	{
 		this->window = window;
@@ -21,32 +24,32 @@ namespace Engine
 
 	void Renderer::Background()
 	{
-		GL_CALL(glClearColor(0.003f * (float)c.r, 0.003f * (float)c.g, 0.003f * (float)c.b, 0.003f * (float)c.a));
+		glClearColor(0.003f * (float)c.r, 0.003f * (float)c.g, 0.003f * (float)c.b, 0.003f * (float)c.a);
+	}
+
+	void Renderer::Line(int32_t x1, int32_t y1, int32_t x2, int32_t y2)
+	{
+		float x1f = 2.0f * (float)x1 / w - 1.0f;
+		float y1f = 2.0f * (float)y1 / h - 1.0f;
+		float x2f = 2.0f * (float)x2 / w - 1.0f;
+		float y2f = 2.0f * (float)y2 / h - 1.0f;
+		Line(x1f, y1f, x2f, y2f);
 	}
 
 	void Renderer::Line(float x1, float y1, float x2, float y2)
 	{
-		x1 = 2.0f * x1 / w - 1.0f;
-		y1 = 2.0f * y1 / h - 1.0f;
-		x2 = 2.0f * x2 / w - 1.0f;
-		y2 = 2.0f * y2 / h - 1.0f;
-
-		GL_CALL(glBegin(GL_LINES));
-		GL_CALL(glVertex2f(x1, y1));
-		GL_CALL(glVertex2f(x2, y2));
-		GL_CALL(glEnd());
-	}
-	void Renderer::Target()
-	{
-		GLFW_CALL(glfwMakeContextCurrent(window->glWindow));
+		glBegin(GL_LINES);
+		glVertex2f(x1, y1);
+		glVertex2f(x2, y2);
+		glEnd();
 	}
 	void Renderer::Update()
 	{
-		GLFW_CALL(glfwSwapBuffers(window->glWindow));
-		GL_CALL(glFlush());
+		DGLFW_CALL(glfwSwapBuffers(window->glfwWindow));
+		DGL_CALL(glFlush());
 	}
 	void Renderer::Clear()
 	{
-		GL_CALL(glClear(GL_COLOR_BUFFER_BIT | GL_DEPTH_BUFFER_BIT | GL_STENCIL_BUFFER_BIT));
+		DGL_CALL(glClear(GL_COLOR_BUFFER_BIT | GL_DEPTH_BUFFER_BIT | GL_STENCIL_BUFFER_BIT));
 	}
 }
