@@ -1,0 +1,84 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup>
+    <ClCompile Include="en_math.cpp">
+      <Filter>Engine</Filter>
+    </ClCompile>
+    <ClCompile Include="en_renderer.cpp">
+      <Filter>Engine</Filter>
+    </ClCompile>
+    <ClCompile Include="en_vector2d.cpp">
+      <Filter>Engine</Filter>
+    </ClCompile>
+    <ClCompile Include="en_vector3d.cpp">
+      <Filter>Engine</Filter>
+    </ClCompile>
+    <ClCompile Include="en_window.cpp">
+      <Filter>Engine</Filter>
+    </ClCompile>
+    <ClCompile Include="main.cpp" />
+    <ClCompile Include="en_shader.cpp">
+      <Filter>Engine</Filter>
+    </ClCompile>
+    <ClCompile Include="en_shader_program.cpp">
+      <Filter>Engine</Filter>
+    </ClCompile>
+    <ClCompile Include="en_core.cpp">
+      <Filter>Engine</Filter>
+    </ClCompile>
+    <ClCompile Include="en_console.cpp">
+      <Filter>Engine</Filter>
+    </ClCompile>
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="en_def.h">
+      <Filter>Engine</Filter>
+    </ClInclude>
+    <ClInclude Include="en_math.h">
+      <Filter>Engine</Filter>
+    </ClInclude>
+    <ClInclude Include="en_renderer.h">
+      <Filter>Engine</Filter>
+    </ClInclude>
+    <ClInclude Include="en_vector2d.h">
+      <Filter>Engine</Filter>
+    </ClInclude>
+    <ClInclude Include="en_vector3d.h">
+      <Filter>Engine</Filter>
+    </ClInclude>
+    <ClInclude Include="en_window.h">
+      <Filter>Engine</Filter>
+    </ClInclude>
+    <ClInclude Include="en_shader.h">
+      <Filter>Engine</Filter>
+    </ClInclude>
+    <ClInclude Include="en_shader_program.h">
+      <Filter>Engine</Filter>
+    </ClInclude>
+    <ClInclude Include="engine.h">
+      <Filter>Engine</Filter>
+    </ClInclude>
+    <ClInclude Include="en_core.h">
+      <Filter>Engine</Filter>
+    </ClInclude>
+    <ClInclude Include="en_console.h">
+      <Filter>Engine</Filter>
+    </ClInclude>
+  </ItemGroup>
+  <ItemGroup>
+    <Filter Include="Engine">
+      <UniqueIdentifier>{015e6ac3-7553-4607-8fa5-acc16440fed8}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Engine\Shaders">
+      <UniqueIdentifier>{99f08ded-87de-4ec6-96c3-45e378556798}</UniqueIdentifier>
+    </Filter>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="fragment_core.shader">
+      <Filter>Engine\Shaders</Filter>
+    </None>
+    <None Include="vertex_core.shader">
+      <Filter>Engine\Shaders</Filter>
+    </None>
+  </ItemGroup>
+</Project>
