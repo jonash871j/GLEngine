@@ -2,6 +2,7 @@
 #include "en_def.h"
 #include "en_mesh.h"
 #include "en_shader_program.h"
+#include "en_texture.h"
 
 namespace Engine
 {
@@ -33,7 +34,7 @@ namespace Engine
 		void Line(float x1, float y1, float x2, float y2);
 	
 	public:
-		void Mesh(Mesh* mesh, ShaderProgram* shaderProgram = nullptr);
+		void Mesh(Mesh* mesh, ShaderProgram* shaderProgram = nullptr, Texture* texture = nullptr);
 
 	public:
 		void Update();

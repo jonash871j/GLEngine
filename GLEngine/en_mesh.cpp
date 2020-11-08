@@ -3,6 +3,10 @@
 
 namespace Engine
 {
+	Mesh::Mesh(Primitive& primitive, glm::vec3 position, glm::vec3 origin, glm::vec3 rotation, glm::vec3 scale)
+		: Mesh(primitive.verticies, primitive.indicies, position, origin, rotation, scale)
+	{
+	}
 	Mesh::Mesh(
 		Verticies* verticies, 
 		Indices* indicies, 
@@ -54,6 +58,8 @@ namespace Engine
 
 		// BIND VAO 0
 		glBindVertexArray(0);
+
+		glBindTexture(GL_TEXTURE_2D, 0);
 	}
 	void Mesh::UpdateMatrix()
 	{

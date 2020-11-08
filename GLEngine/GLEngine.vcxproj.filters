@@ -47,13 +47,13 @@
     <ClCompile Include="en_indices.cpp">
       <Filter>Engine\Drawing</Filter>
     </ClCompile>
-    <ClCompile Include="en_polygon.cpp">
-      <Filter>Engine\Shapes</Filter>
-    </ClCompile>
-    <ClCompile Include="en_square.cpp">
-      <Filter>Engine\Shapes</Filter>
-    </ClCompile>
     <ClCompile Include="en_mesh.cpp">
+      <Filter>Engine\Drawing</Filter>
+    </ClCompile>
+    <ClCompile Include="en_primitive.cpp">
+      <Filter>Engine\Drawing</Filter>
+    </ClCompile>
+    <ClCompile Include="en_texture.cpp">
       <Filter>Engine\Drawing</Filter>
     </ClCompile>
   </ItemGroup>
@@ -112,13 +112,13 @@
     <ClInclude Include="en_indices.h">
       <Filter>Engine\Drawing</Filter>
     </ClInclude>
-    <ClInclude Include="en_polygon.h">
-      <Filter>Engine\Shapes</Filter>
-    </ClInclude>
-    <ClInclude Include="en_square.h">
-      <Filter>Engine\Shapes</Filter>
-    </ClInclude>
     <ClInclude Include="en_mesh.h">
+      <Filter>Engine\Drawing</Filter>
+    </ClInclude>
+    <ClInclude Include="en_primitive.h">
+      <Filter>Engine\Drawing</Filter>
+    </ClInclude>
+    <ClInclude Include="en_texture.h">
       <Filter>Engine\Drawing</Filter>
     </ClInclude>
   </ItemGroup>
@@ -131,9 +131,6 @@
     </Filter>
     <Filter Include="Engine\Window">
       <UniqueIdentifier>{b3e33e87-615b-4ff8-b902-c85d5c5bbf52}</UniqueIdentifier>
-    </Filter>
-    <Filter Include="Engine\Shapes">
-      <UniqueIdentifier>{cda64922-d56c-4f01-937a-eebc50f5bead}</UniqueIdentifier>
     </Filter>
     <Filter Include="Engine\Math">
       <UniqueIdentifier>{1beec5a4-5ea2-46c8-81be-f19283d283e2}</UniqueIdentifier>

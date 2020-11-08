@@ -2,6 +2,7 @@
 #include "en_def.h"
 #include "en_verticies.h"
 #include "en_indices.h"
+#include "en_primitive.h"
 
 #include <glm.hpp>
 #include <vec2.hpp>
@@ -33,6 +34,12 @@ namespace Engine
 		glm::vec3 scale;
 
 	public:
+		Mesh(Primitive& primitive,
+			 glm::vec3 position = glm::vec3(0.f),
+			 glm::vec3 origin = glm::vec3(0.f),
+			 glm::vec3 rotation = glm::vec3(0.f),
+			 glm::vec3 scale = glm::vec3(1.f)
+		);
 		Mesh(
 			Verticies* verticies, 
 			Indices* indicies, 

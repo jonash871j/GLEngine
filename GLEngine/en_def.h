@@ -10,4 +10,6 @@ struct GLFWwindow;
 namespace Engine
 {
 	class Window;
+	struct Verticies;
+	struct Indices;
 }

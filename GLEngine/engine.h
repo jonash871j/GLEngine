@@ -13,11 +13,10 @@
 #include "en_vertex.h"
 #include "en_verticies.h"
 #include "en_indices.h"
-
-#include "en_polygon.h"
-#include "en_square.h"
+#include "en_primitive.h"
 
 #include "en_image.h"
+#include "en_texture.h"
 
 #include "en_shader_program.h"
 #include "en_shader.h"
