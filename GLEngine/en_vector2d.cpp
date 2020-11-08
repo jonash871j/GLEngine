@@ -53,4 +53,16 @@ namespace Engine
 	{
 		this->x /= rhs; this->y /= rhs; return *this; 
 	}
+	bool Vector2D::operator!=(const float& compare)
+	{
+		if ((this->x != compare) && (this->y != compare))
+			return true;
+		return false;
+	}
+	bool Vector2D::operator!=(Vector2D& compare)
+	{
+		if ((this->x != compare.x) && (this->y != compare.y))
+			return true;
+		return false;
+	}
 }

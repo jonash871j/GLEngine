@@ -1,7 +1,7 @@
 #include "en_console.h"
 #include <stdio.h>
 #include <Windows.h>
-#define VPRINT(format) SetConsoleTextAttribute(hConsole, 0xf);  \
+#define VPRINT(format, c) SetConsoleTextAttribute(hConsole, c); \
 					   va_list arglist;							\
 					   va_start(arglist, format);				\
 					   vprintf(format, arglist);				\
@@ -18,10 +18,13 @@ namespace Engine
 		csbiInfo.cbSize = sizeof(csbiInfo);
 		GetConsoleScreenBufferInfoEx(hConsole, &csbiInfo);
 		csbiInfo.ColorTable[0x4] = RGB(224, 32, 32);
-		csbiInfo.ColorTable[0x7] = RGB(224, 127, 127);
+		csbiInfo.ColorTable[0x5] = RGB(255, 64, 64);
+		csbiInfo.ColorTable[0x6] = RGB(255, 128, 128);
+		csbiInfo.ColorTable[0x7] = RGB(224, 224, 127);
 		csbiInfo.ColorTable[0xa] = RGB(32, 224, 32);
 		csbiInfo.ColorTable[0xb] = RGB(32, 224, 224);
 		csbiInfo.ColorTable[0xc] = RGB(255, 192, 0);
+		csbiInfo.ColorTable[0xd] = RGB(255, 128, 255);
 		csbiInfo.ColorTable[0xe] = RGB(255, 255, 32);
 		SetConsoleScreenBufferInfoEx(hConsole, &csbiInfo);
 	}
@@ -30,28 +33,30 @@ namespace Engine
 	{
 		SetConsoleTextAttribute(hConsole, 0x4);
 		printf("  <ERROR> ");
-		VPRINT(format);
+		VPRINT(format, 0x5);
 		printf("\n");
 	}
 	void Console::PrintReason(const char* format, ...)
 	{
-		SetConsoleTextAttribute(hConsole, 0x7);
+		D_CALL(
+			SetConsoleTextAttribute(hConsole, 0x7);
 		printf(" <REASON> ");
-		VPRINT(format);
+		VPRINT(format, 0x6);
 		printf("\n");
+		);
 	}
 	void Console::PrintWarning(const char* format, ...)
 	{
 		SetConsoleTextAttribute(hConsole, 0xe);
 		printf("<WARNING> ");
-		VPRINT(format);
+		VPRINT(format, 0xf);
 		printf("\n");
 	}
 	void Console::PrintSuccess(const char* format, ...)
 	{
 		SetConsoleTextAttribute(hConsole, 0xa);
 		printf("<SUCCESS> ");
-		VPRINT(format);
+		VPRINT(format, 0xf);
 		printf("\n");
 	}
 
@@ -92,7 +97,7 @@ namespace Engine
 	{
 		SetConsoleTextAttribute(hConsole, 0xb);
 		printf("<MESSAGE> ");
-		VPRINT(format);
+		VPRINT(format, 0xd);
 		printf("\n");
 	}
 }

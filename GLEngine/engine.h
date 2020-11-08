@@ -10,6 +10,8 @@
 #include "en_input.h"
 #include "en_window.h"
 
+#include "en_image.h"
+
 #include "en_shader_program.h"
 #include "en_shader.h"
 

@@ -35,6 +35,12 @@
     <ClCompile Include="en_vertex.cpp">
       <Filter>Engine</Filter>
     </ClCompile>
+    <ClCompile Include="en_image.cpp">
+      <Filter>Engine</Filter>
+    </ClCompile>
+    <ClCompile Include="en_sprite.cpp">
+      <Filter>Engine</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="en_def.h">
@@ -77,6 +83,12 @@
       <Filter>Engine</Filter>
     </ClInclude>
     <ClInclude Include="en_vertex.h">
+      <Filter>Engine</Filter>
+    </ClInclude>
+    <ClInclude Include="en_sprite.h">
+      <Filter>Engine</Filter>
+    </ClInclude>
+    <ClInclude Include="en_image.h">
       <Filter>Engine</Filter>
     </ClInclude>
   </ItemGroup>

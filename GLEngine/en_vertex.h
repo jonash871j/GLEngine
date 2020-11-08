@@ -10,6 +10,8 @@ namespace Engine
 		Vector3D position;
 		Vector3D color;
 		Vector2D texCoord;
+
+		Vertex(Vector3D position, Vector3D color, Vector2D texCoord);
 	};
 }
 

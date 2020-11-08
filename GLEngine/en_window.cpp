@@ -35,7 +35,8 @@ namespace Engine
 		renderer.UpdateProperties(this);
 		input.UpdateProperties(this);
 
-		Console::PrintSuccess("Window was created as %s %ix%i ", title, width, height);
+		Console::PrintSuccess("Window was created as %s", title);
+		Console::PrintMsg("Dimensions %ix%i", width, height);
 		Console::PrintMsg("OpenGL version: %s", glGetString(GL_VERSION));
 
 		renderer.Color(32, 32, 32);

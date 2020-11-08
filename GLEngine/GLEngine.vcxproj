@@ -122,13 +122,13 @@
       <SDLCheck>true</SDLCheck>
       <PreprocessorDefinitions>_DEBUG;_CONSOLE;%(PreprocessorDefinitions);GLEW_STATIC</PreprocessorDefinitions>
       <ConformanceMode>true</ConformanceMode>
-      <AdditionalIncludeDirectories>$(SolutionDir)GLEngine\Dependencies\JMisc\include;$(SolutionDir)GLEngine\Dependencies\OpenGL\include</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>$(SolutionDir)GLEngine\Dependencies\SOIL2\include;$(SolutionDir)GLEngine\Dependencies\JMisc\include;$(SolutionDir)GLEngine\Dependencies\OpenGL\include;$(SolutionDir)GLEngine\Dependencies\GLM\include</AdditionalIncludeDirectories>
     </ClCompile>
     <Link>
       <SubSystem>Console</SubSystem>
       <GenerateDebugInformation>true</GenerateDebugInformation>
-      <AdditionalLibraryDirectories>$(SolutionDir)GLEngine\Dependencies\JMisc\lib x64;$(SolutionDir)GLEngine\Dependencies\OpenGL\lib x64</AdditionalLibraryDirectories>
-      <AdditionalDependencies>JMisc.lib;glfw3.lib;glfw3dll.lib;glew32s.lib;glew32.lib;opengl32.lib;kernel32.lib;user32.lib;gdi32.lib;winspool.lib;comdlg32.lib;advapi32.lib;shell32.lib;ole32.lib;oleaut32.lib;uuid.lib;odbc32.lib;odbccp32.lib;%(AdditionalDependencies)</AdditionalDependencies>
+      <AdditionalLibraryDirectories>$(SolutionDir)GLEngine\Dependencies\JMisc\lib x64;$(SolutionDir)GLEngine\Dependencies\OpenGL\lib x64;$(SolutionDir)GLEngine\Dependencies\SOIL2\lib x64</AdditionalLibraryDirectories>
+      <AdditionalDependencies>SOIL2.lib;JMisc.lib;glfw3.lib;glfw3dll.lib;glew32s.lib;glew32.lib;opengl32.lib;kernel32.lib;user32.lib;gdi32.lib;winspool.lib;comdlg32.lib;advapi32.lib;shell32.lib;ole32.lib;oleaut32.lib;uuid.lib;odbc32.lib;odbccp32.lib;%(AdditionalDependencies)</AdditionalDependencies>
     </Link>
   </ItemDefinitionGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'">
@@ -139,25 +139,27 @@
       <SDLCheck>true</SDLCheck>
       <PreprocessorDefinitions>NDEBUG;_CONSOLE;%(PreprocessorDefinitions);GLEW_STATIC</PreprocessorDefinitions>
       <ConformanceMode>true</ConformanceMode>
-      <AdditionalIncludeDirectories>$(SolutionDir)GLEngine\Dependencies\JMisc\include;$(SolutionDir)GLEngine\Dependencies\OpenGL\include</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>$(SolutionDir)GLEngine\Dependencies\SOIL2\include;$(SolutionDir)GLEngine\Dependencies\JMisc\include;$(SolutionDir)GLEngine\Dependencies\OpenGL\include;$(SolutionDir)GLEngine\Dependencies\GLM\include</AdditionalIncludeDirectories>
     </ClCompile>
     <Link>
       <SubSystem>Console</SubSystem>
       <EnableCOMDATFolding>true</EnableCOMDATFolding>
       <OptimizeReferences>true</OptimizeReferences>
       <GenerateDebugInformation>true</GenerateDebugInformation>
-      <AdditionalLibraryDirectories>$(SolutionDir)GLEngine\Dependencies\JMisc\lib x64;$(SolutionDir)GLEngine\Dependencies\OpenGL\lib x64</AdditionalLibraryDirectories>
-      <AdditionalDependencies>JMisc.lib;glfw3.lib;glfw3dll.lib;glew32s.lib;glew32.lib;opengl32.lib;kernel32.lib;user32.lib;gdi32.lib;winspool.lib;comdlg32.lib;advapi32.lib;shell32.lib;ole32.lib;oleaut32.lib;uuid.lib;odbc32.lib;odbccp32.lib;%(AdditionalDependencies)</AdditionalDependencies>
+      <AdditionalLibraryDirectories>$(SolutionDir)GLEngine\Dependencies\JMisc\lib x64;$(SolutionDir)GLEngine\Dependencies\OpenGL\lib x64;$(SolutionDir)GLEngine\Dependencies\SOIL2\lib x64</AdditionalLibraryDirectories>
+      <AdditionalDependencies>SOIL2.lib;JMisc.lib;glfw3.lib;glfw3dll.lib;glew32s.lib;glew32.lib;opengl32.lib;kernel32.lib;user32.lib;gdi32.lib;winspool.lib;comdlg32.lib;advapi32.lib;shell32.lib;ole32.lib;oleaut32.lib;uuid.lib;odbc32.lib;odbccp32.lib;%(AdditionalDependencies)</AdditionalDependencies>
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
     <ClCompile Include="en_console.cpp" />
     <ClCompile Include="en_core.cpp" />
+    <ClCompile Include="en_image.cpp" />
     <ClCompile Include="en_input.cpp" />
     <ClCompile Include="en_math.cpp" />
     <ClCompile Include="en_renderer.cpp" />
     <ClCompile Include="en_shader.cpp" />
     <ClCompile Include="en_shader_program.cpp" />
+    <ClCompile Include="en_sprite.cpp" />
     <ClCompile Include="en_vector2d.cpp" />
     <ClCompile Include="en_vector3d.cpp" />
     <ClCompile Include="en_vertex.cpp" />
@@ -170,11 +172,13 @@
     <ClInclude Include="en_core.h" />
     <ClInclude Include="en_def.h" />
     <ClInclude Include="en_error.h" />
+    <ClInclude Include="en_image.h" />
     <ClInclude Include="en_input.h" />
     <ClInclude Include="en_math.h" />
     <ClInclude Include="en_renderer.h" />
     <ClInclude Include="en_shader.h" />
     <ClInclude Include="en_shader_program.h" />
+    <ClInclude Include="en_sprite.h" />
     <ClInclude Include="en_vector2d.h" />
     <ClInclude Include="en_vector3d.h" />
     <ClInclude Include="en_vertex.h" />

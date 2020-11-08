@@ -23,5 +23,8 @@ namespace Engine
 		Vector2D& operator -= (const Vector2D& rhs);
 		Vector2D& operator *= (const float& rhs);
 		Vector2D& operator /= (const float& rhs);
+
+		bool operator != (const float& compare);
+		bool operator != (Vector2D& compare);
 	};
 }

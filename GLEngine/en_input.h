@@ -1,5 +1,6 @@
 #pragma once
 #include "en_def.h"
+#include "en_vector2d.h"
 
 namespace Engine
 {
@@ -126,6 +127,16 @@ namespace Engine
 		RightSuper = 347,
 		Menu = 348,
 	};
+	enum class MouseButton
+	{
+		Left = 0,
+		Right = 1,
+		Middle = 2,
+		Num4 = 3,
+		Num5 = 4,
+		Num6 = 5,
+		Num7 = 6,
+	};
 
 	class Input
 	{
@@ -139,8 +150,12 @@ namespace Engine
 		};
 
 	private:
-		static const int KeyMapSize = 348;
+		static const int16_t KeyMapSize = 348;
 		InputState keyPressedMap[KeyMapSize]{ InputState::Unlocked };
+
+	public:
+		bool isMouseDeltaMode = false;
+		uint8_t mouseDeltaInterval = 0;
 
 	private:
 		Window* window = nullptr;
@@ -156,5 +171,16 @@ namespace Engine
 		bool KeyState(Key key);
 		bool KeyPressed(Key key);
 		bool KeyReleased(Key key);
+
+	public:
+		bool MouseState(MouseButton mouseButton);
+		Vector2D MousePosition();
+		Vector2D MouseDelta();
+
+	public:
+		void SetIsMouseDeltaMode(bool state);
+
+	public:
+		bool GetIsMouseDeltaMode(bool state);
 	};
 }
