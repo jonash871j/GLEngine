@@ -20,6 +20,10 @@ namespace Engine
 		
 		isInitialized = true;
 	}
+	void Core::Unitialize()
+	{
+		isInitialized = false;
+	}
 	void Core::GLLogClearError()
 	{
 		while (glGetError() != GL_NO_ERROR);

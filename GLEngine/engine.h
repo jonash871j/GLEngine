@@ -10,9 +10,14 @@
 #include "en_input.h"
 #include "en_window.h"
 
+#include "en_vertex.h"
+#include "en_verticies.h"
+#include "en_indices.h"
+
+#include "en_polygon.h"
+#include "en_square.h"
+
 #include "en_image.h"
 
 #include "en_shader_program.h"
 #include "en_shader.h"
-
-#include "en_vertex.h"

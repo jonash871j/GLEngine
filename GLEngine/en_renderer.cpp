@@ -43,6 +43,19 @@ namespace Engine
 		glVertex2f(x2, y2);
 		glEnd();
 	}
+	void Renderer::Mesh(Engine::Mesh* mesh, ShaderProgram* shaderProgram)
+	{
+		mesh->UpdateMatrix();
+
+		DGL_CALL(glBindVertexArray(mesh->VAO));
+		DGL_CALL(glUseProgram(shaderProgram->GetId()));
+		DGL_CALL(glUniformMatrix4fv(glGetUniformLocation(shaderProgram->GetId(), "Matrix"), 1, false, glm::value_ptr(mesh->matrix)));
+
+		if (mesh->indicies->length == 0)
+			glDrawArrays(GL_TRIANGLES, 0, mesh->verticies->length);
+		else
+			glDrawElements(GL_TRIANGLES, mesh->indicies->length, GL_UNSIGNED_INT, 0);
+	}
 	void Renderer::Update()
 	{
 		DGLFW_CALL(glfwSwapBuffers(window->glfwWindow));

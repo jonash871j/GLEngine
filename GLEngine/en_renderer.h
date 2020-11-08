@@ -1,5 +1,7 @@
 #pragma once
 #include "en_def.h"
+#include "en_mesh.h"
+#include "en_shader_program.h"
 
 namespace Engine
 {
@@ -29,6 +31,9 @@ namespace Engine
 		void Background();
 		void Line(int32_t x1, int32_t y1, int32_t x2, int32_t y2);
 		void Line(float x1, float y1, float x2, float y2);
+	
+	public:
+		void Mesh(Mesh* mesh, ShaderProgram* shaderProgram = nullptr);
 
 	public:
 		void Update();

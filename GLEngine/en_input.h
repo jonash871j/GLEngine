@@ -153,7 +153,7 @@ namespace Engine
 		static const int16_t KeyMapSize = 348;
 		InputState keyPressedMap[KeyMapSize]{ InputState::Unlocked };
 
-	public:
+	private:
 		bool isMouseDeltaMode = false;
 		uint8_t mouseDeltaInterval = 0;
 

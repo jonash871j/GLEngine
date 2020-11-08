@@ -926,7 +926,7 @@ GLAPI void GLAPIENTRY glDisable (GLenum cap);
 GLAPI void GLAPIENTRY glDisableClientState (GLenum array);
 GLAPI void GLAPIENTRY glDrawArrays (GLenum mode, GLint first, GLsizei count);
 GLAPI void GLAPIENTRY glDrawBuffer (GLenum mode);
-GLAPI void GLAPIENTRY glDrawElements (GLenum mode, GLsizei count, GLenum type, const void *indices);
+GLAPI void GLAPIENTRY glDrawElements (GLenum mode, GLsizei count, GLenum type, const void *val);
 GLAPI void GLAPIENTRY glDrawPixels (GLsizei width, GLsizei height, GLenum format, GLenum type, const void *pixels);
 GLAPI void GLAPIENTRY glEdgeFlag (GLboolean flag);
 GLAPI void GLAPIENTRY glEdgeFlagPointer (GLsizei stride, const void *pointer);
@@ -1267,7 +1267,7 @@ GLAPI void GLAPIENTRY glViewport (GLint x, GLint y, GLsizei width, GLsizei heigh
 #define GL_ALIASED_LINE_WIDTH_RANGE 0x846E
 
 typedef void (GLAPIENTRY * PFNGLCOPYTEXSUBIMAGE3DPROC) (GLenum target, GLint level, GLint xoffset, GLint yoffset, GLint zoffset, GLint x, GLint y, GLsizei width, GLsizei height);
-typedef void (GLAPIENTRY * PFNGLDRAWRANGEELEMENTSPROC) (GLenum mode, GLuint start, GLuint end, GLsizei count, GLenum type, const void *indices);
+typedef void (GLAPIENTRY * PFNGLDRAWRANGEELEMENTSPROC) (GLenum mode, GLuint start, GLuint end, GLsizei count, GLenum type, const void *val);
 typedef void (GLAPIENTRY * PFNGLTEXIMAGE3DPROC) (GLenum target, GLint level, GLint internalFormat, GLsizei width, GLsizei height, GLsizei depth, GLint border, GLenum format, GLenum type, const void *pixels);
 typedef void (GLAPIENTRY * PFNGLTEXSUBIMAGE3DPROC) (GLenum target, GLint level, GLint xoffset, GLint yoffset, GLint zoffset, GLsizei width, GLsizei height, GLsizei depth, GLenum format, GLenum type, const void *pixels);
 
@@ -1543,7 +1543,7 @@ typedef void (GLAPIENTRY * PFNGLFOGCOORDDVPROC) (const GLdouble *coord);
 typedef void (GLAPIENTRY * PFNGLFOGCOORDFPROC) (GLfloat coord);
 typedef void (GLAPIENTRY * PFNGLFOGCOORDFVPROC) (const GLfloat *coord);
 typedef void (GLAPIENTRY * PFNGLMULTIDRAWARRAYSPROC) (GLenum mode, const GLint *first, const GLsizei *count, GLsizei drawcount);
-typedef void (GLAPIENTRY * PFNGLMULTIDRAWELEMENTSPROC) (GLenum mode, const GLsizei *count, GLenum type, const void *const* indices, GLsizei drawcount);
+typedef void (GLAPIENTRY * PFNGLMULTIDRAWELEMENTSPROC) (GLenum mode, const GLsizei *count, GLenum type, const void *const* val, GLsizei drawcount);
 typedef void (GLAPIENTRY * PFNGLPOINTPARAMETERFPROC) (GLenum pname, GLfloat param);
 typedef void (GLAPIENTRY * PFNGLPOINTPARAMETERFVPROC) (GLenum pname, const GLfloat *params);
 typedef void (GLAPIENTRY * PFNGLPOINTPARAMETERIPROC) (GLenum pname, GLint param);
@@ -2334,7 +2334,7 @@ typedef void (GLAPIENTRY * PFNGLVERTEXATTRIBIPOINTERPROC) (GLuint index, GLint s
 #define GL_BUFFER_MAP_OFFSET 0x9121
 
 typedef void (GLAPIENTRY * PFNGLDRAWARRAYSINSTANCEDPROC) (GLenum mode, GLint first, GLsizei count, GLsizei primcount);
-typedef void (GLAPIENTRY * PFNGLDRAWELEMENTSINSTANCEDPROC) (GLenum mode, GLsizei count, GLenum type, const void* indices, GLsizei primcount);
+typedef void (GLAPIENTRY * PFNGLDRAWELEMENTSINSTANCEDPROC) (GLenum mode, GLsizei count, GLenum type, const void* val, GLsizei primcount);
 typedef void (GLAPIENTRY * PFNGLPRIMITIVERESTARTINDEXPROC) (GLuint buffer);
 typedef void (GLAPIENTRY * PFNGLTEXBUFFERPROC) (GLenum target, GLenum internalFormat, GLuint buffer);
 
@@ -3266,7 +3266,7 @@ typedef void (GLAPIENTRY * PFNGLRENDERBUFFERSTORAGEMULTISAMPLEANGLEPROC) (GLenum
 #define GL_VERTEX_ATTRIB_ARRAY_DIVISOR_ANGLE 0x88FE
 
 typedef void (GLAPIENTRY * PFNGLDRAWARRAYSINSTANCEDANGLEPROC) (GLenum mode, GLint first, GLsizei count, GLsizei primcount);
-typedef void (GLAPIENTRY * PFNGLDRAWELEMENTSINSTANCEDANGLEPROC) (GLenum mode, GLsizei count, GLenum type, const void *indices, GLsizei primcount);
+typedef void (GLAPIENTRY * PFNGLDRAWELEMENTSINSTANCEDANGLEPROC) (GLenum mode, GLsizei count, GLenum type, const void *val, GLsizei primcount);
 typedef void (GLAPIENTRY * PFNGLVERTEXATTRIBDIVISORANGLEPROC) (GLuint index, GLuint divisor);
 
 #define glDrawArraysInstancedANGLE GLEW_GET_FUN(__glewDrawArraysInstancedANGLE)
@@ -3987,8 +3987,8 @@ typedef void (GLAPIENTRY * PFNGLPRIMITIVEBOUNDINGBOXARBPROC) (GLfloat minX, GLfl
 #define GL_ARB_base_instance 1
 
 typedef void (GLAPIENTRY * PFNGLDRAWARRAYSINSTANCEDBASEINSTANCEPROC) (GLenum mode, GLint first, GLsizei count, GLsizei primcount, GLuint baseinstance);
-typedef void (GLAPIENTRY * PFNGLDRAWELEMENTSINSTANCEDBASEINSTANCEPROC) (GLenum mode, GLsizei count, GLenum type, const void *indices, GLsizei primcount, GLuint baseinstance);
-typedef void (GLAPIENTRY * PFNGLDRAWELEMENTSINSTANCEDBASEVERTEXBASEINSTANCEPROC) (GLenum mode, GLsizei count, GLenum type, const void *indices, GLsizei primcount, GLint basevertex, GLuint baseinstance);
+typedef void (GLAPIENTRY * PFNGLDRAWELEMENTSINSTANCEDBASEINSTANCEPROC) (GLenum mode, GLsizei count, GLenum type, const void *val, GLsizei primcount, GLuint baseinstance);
+typedef void (GLAPIENTRY * PFNGLDRAWELEMENTSINSTANCEDBASEVERTEXBASEINSTANCEPROC) (GLenum mode, GLsizei count, GLenum type, const void *val, GLsizei primcount, GLint basevertex, GLuint baseinstance);
 
 #define glDrawArraysInstancedBaseInstance GLEW_GET_FUN(__glewDrawArraysInstancedBaseInstance)
 #define glDrawElementsInstancedBaseInstance GLEW_GET_FUN(__glewDrawElementsInstancedBaseInstance)
@@ -4678,10 +4678,10 @@ typedef void (GLAPIENTRY * PFNGLBLENDFUNCIARBPROC) (GLuint buf, GLenum src, GLen
 #ifndef GL_ARB_draw_elements_base_vertex
 #define GL_ARB_draw_elements_base_vertex 1
 
-typedef void (GLAPIENTRY * PFNGLDRAWELEMENTSBASEVERTEXPROC) (GLenum mode, GLsizei count, GLenum type, const void *indices, GLint basevertex);
-typedef void (GLAPIENTRY * PFNGLDRAWELEMENTSINSTANCEDBASEVERTEXPROC) (GLenum mode, GLsizei count, GLenum type, const void *indices, GLsizei instancecount, GLint basevertex);
-typedef void (GLAPIENTRY * PFNGLDRAWRANGEELEMENTSBASEVERTEXPROC) (GLenum mode, GLuint start, GLuint end, GLsizei count, GLenum type, const void *indices, GLint basevertex);
-typedef void (GLAPIENTRY * PFNGLMULTIDRAWELEMENTSBASEVERTEXPROC) (GLenum mode, const GLsizei* count, GLenum type, const void*const *indices, GLsizei drawcount, const GLint *basevertex);
+typedef void (GLAPIENTRY * PFNGLDRAWELEMENTSBASEVERTEXPROC) (GLenum mode, GLsizei count, GLenum type, const void *val, GLint basevertex);
+typedef void (GLAPIENTRY * PFNGLDRAWELEMENTSINSTANCEDBASEVERTEXPROC) (GLenum mode, GLsizei count, GLenum type, const void *val, GLsizei instancecount, GLint basevertex);
+typedef void (GLAPIENTRY * PFNGLDRAWRANGEELEMENTSBASEVERTEXPROC) (GLenum mode, GLuint start, GLuint end, GLsizei count, GLenum type, const void *val, GLint basevertex);
+typedef void (GLAPIENTRY * PFNGLMULTIDRAWELEMENTSBASEVERTEXPROC) (GLenum mode, const GLsizei* count, GLenum type, const void*const *val, GLsizei drawcount, const GLint *basevertex);
 
 #define glDrawElementsBaseVertex GLEW_GET_FUN(__glewDrawElementsBaseVertex)
 #define glDrawElementsInstancedBaseVertex GLEW_GET_FUN(__glewDrawElementsInstancedBaseVertex)
@@ -5453,7 +5453,7 @@ typedef void (GLAPIENTRY * PFNGLMULTIDRAWELEMENTSINDIRECTCOUNTARBPROC) (GLenum m
 #define GL_VERTEX_ATTRIB_ARRAY_DIVISOR_ARB 0x88FE
 
 typedef void (GLAPIENTRY * PFNGLDRAWARRAYSINSTANCEDARBPROC) (GLenum mode, GLint first, GLsizei count, GLsizei primcount);
-typedef void (GLAPIENTRY * PFNGLDRAWELEMENTSINSTANCEDARBPROC) (GLenum mode, GLsizei count, GLenum type, const void* indices, GLsizei primcount);
+typedef void (GLAPIENTRY * PFNGLDRAWELEMENTSINSTANCEDARBPROC) (GLenum mode, GLsizei count, GLenum type, const void* val, GLsizei primcount);
 typedef void (GLAPIENTRY * PFNGLVERTEXATTRIBDIVISORARBPROC) (GLuint index, GLuint divisor);
 
 #define glDrawArraysInstancedARB GLEW_GET_FUN(__glewDrawArraysInstancedARB)
@@ -5666,9 +5666,9 @@ typedef void * (GLAPIENTRY * PFNGLMAPBUFFERRANGEPROC) (GLenum target, GLintptr o
 
 typedef void (GLAPIENTRY * PFNGLCURRENTPALETTEMATRIXARBPROC) (GLint index);
 typedef void (GLAPIENTRY * PFNGLMATRIXINDEXPOINTERARBPROC) (GLint size, GLenum type, GLsizei stride, void *pointer);
-typedef void (GLAPIENTRY * PFNGLMATRIXINDEXUBVARBPROC) (GLint size, GLubyte *indices);
-typedef void (GLAPIENTRY * PFNGLMATRIXINDEXUIVARBPROC) (GLint size, GLuint *indices);
-typedef void (GLAPIENTRY * PFNGLMATRIXINDEXUSVARBPROC) (GLint size, GLushort *indices);
+typedef void (GLAPIENTRY * PFNGLMATRIXINDEXUBVARBPROC) (GLint size, GLubyte *val);
+typedef void (GLAPIENTRY * PFNGLMATRIXINDEXUIVARBPROC) (GLint size, GLuint *val);
+typedef void (GLAPIENTRY * PFNGLMATRIXINDEXUSVARBPROC) (GLint size, GLushort *val);
 
 #define glCurrentPaletteMatrixARB GLEW_GET_FUN(__glewCurrentPaletteMatrixARB)
 #define glMatrixIndexPointerARB GLEW_GET_FUN(__glewMatrixIndexPointerARB)
@@ -6823,7 +6823,7 @@ typedef void (GLAPIENTRY * PFNGLGETPROGRAMSTAGEIVPROC) (GLuint program, GLenum s
 typedef GLuint (GLAPIENTRY * PFNGLGETSUBROUTINEINDEXPROC) (GLuint program, GLenum shadertype, const GLchar* name);
 typedef GLint (GLAPIENTRY * PFNGLGETSUBROUTINEUNIFORMLOCATIONPROC) (GLuint program, GLenum shadertype, const GLchar* name);
 typedef void (GLAPIENTRY * PFNGLGETUNIFORMSUBROUTINEUIVPROC) (GLenum shadertype, GLint location, GLuint* params);
-typedef void (GLAPIENTRY * PFNGLUNIFORMSUBROUTINESUIVPROC) (GLenum shadertype, GLsizei count, const GLuint* indices);
+typedef void (GLAPIENTRY * PFNGLUNIFORMSUBROUTINESUIVPROC) (GLenum shadertype, GLsizei count, const GLuint* val);
 
 #define glGetActiveSubroutineName GLEW_GET_FUN(__glewGetActiveSubroutineName)
 #define glGetActiveSubroutineUniformName GLEW_GET_FUN(__glewGetActiveSubroutineUniformName)
@@ -9257,8 +9257,8 @@ typedef void (GLAPIENTRY * PFNGLEGLIMAGETARGETTEXTURESTORAGEEXTPROC) (GLuint tex
 #define GL_EXT_base_instance 1
 
 typedef void (GLAPIENTRY * PFNGLDRAWARRAYSINSTANCEDBASEINSTANCEEXTPROC) (GLenum mode, GLint first, GLsizei count, GLsizei instancecount, GLuint baseinstance);
-typedef void (GLAPIENTRY * PFNGLDRAWELEMENTSINSTANCEDBASEINSTANCEEXTPROC) (GLenum mode, GLsizei count, GLenum type, const void *indices, GLsizei instancecount, GLuint baseinstance);
-typedef void (GLAPIENTRY * PFNGLDRAWELEMENTSINSTANCEDBASEVERTEXBASEINSTANCEEXTPROC) (GLenum mode, GLsizei count, GLenum type, const void *indices, GLsizei instancecount, GLint basevertex, GLuint baseinstance);
+typedef void (GLAPIENTRY * PFNGLDRAWELEMENTSINSTANCEDBASEINSTANCEEXTPROC) (GLenum mode, GLsizei count, GLenum type, const void *val, GLsizei instancecount, GLuint baseinstance);
+typedef void (GLAPIENTRY * PFNGLDRAWELEMENTSINSTANCEDBASEVERTEXBASEINSTANCEEXTPROC) (GLenum mode, GLsizei count, GLenum type, const void *val, GLsizei instancecount, GLint basevertex, GLuint baseinstance);
 
 #define glDrawArraysInstancedBaseInstanceEXT GLEW_GET_FUN(__glewDrawArraysInstancedBaseInstanceEXT)
 #define glDrawElementsInstancedBaseInstanceEXT GLEW_GET_FUN(__glewDrawElementsInstancedBaseInstanceEXT)
@@ -10412,10 +10412,10 @@ typedef GLboolean (GLAPIENTRY * PFNGLISENABLEDIEXTPROC) (GLenum target, GLuint i
 #ifndef GL_EXT_draw_elements_base_vertex
 #define GL_EXT_draw_elements_base_vertex 1
 
-typedef void (GLAPIENTRY * PFNGLDRAWELEMENTSBASEVERTEXEXTPROC) (GLenum mode, GLsizei count, GLenum type, const void *indices, GLint basevertex);
-typedef void (GLAPIENTRY * PFNGLDRAWELEMENTSINSTANCEDBASEVERTEXEXTPROC) (GLenum mode, GLsizei count, GLenum type, const void *indices, GLsizei instancecount, GLint basevertex);
-typedef void (GLAPIENTRY * PFNGLDRAWRANGEELEMENTSBASEVERTEXEXTPROC) (GLenum mode, GLuint start, GLuint end, GLsizei count, GLenum type, const void *indices, GLint basevertex);
-typedef void (GLAPIENTRY * PFNGLMULTIDRAWELEMENTSBASEVERTEXEXTPROC) (GLenum mode, const GLsizei* count, GLenum type, const void *const *indices, GLsizei primcount, const GLint *basevertex);
+typedef void (GLAPIENTRY * PFNGLDRAWELEMENTSBASEVERTEXEXTPROC) (GLenum mode, GLsizei count, GLenum type, const void *val, GLint basevertex);
+typedef void (GLAPIENTRY * PFNGLDRAWELEMENTSINSTANCEDBASEVERTEXEXTPROC) (GLenum mode, GLsizei count, GLenum type, const void *val, GLsizei instancecount, GLint basevertex);
+typedef void (GLAPIENTRY * PFNGLDRAWRANGEELEMENTSBASEVERTEXEXTPROC) (GLenum mode, GLuint start, GLuint end, GLsizei count, GLenum type, const void *val, GLint basevertex);
+typedef void (GLAPIENTRY * PFNGLMULTIDRAWELEMENTSBASEVERTEXEXTPROC) (GLenum mode, const GLsizei* count, GLenum type, const void *const *val, GLsizei primcount, const GLint *basevertex);
 
 #define glDrawElementsBaseVertexEXT GLEW_GET_FUN(__glewDrawElementsBaseVertexEXT)
 #define glDrawElementsInstancedBaseVertexEXT GLEW_GET_FUN(__glewDrawElementsInstancedBaseVertexEXT)
@@ -10432,7 +10432,7 @@ typedef void (GLAPIENTRY * PFNGLMULTIDRAWELEMENTSBASEVERTEXEXTPROC) (GLenum mode
 #define GL_EXT_draw_instanced 1
 
 typedef void (GLAPIENTRY * PFNGLDRAWARRAYSINSTANCEDEXTPROC) (GLenum mode, GLint start, GLsizei count, GLsizei primcount);
-typedef void (GLAPIENTRY * PFNGLDRAWELEMENTSINSTANCEDEXTPROC) (GLenum mode, GLsizei count, GLenum type, const void *indices, GLsizei primcount);
+typedef void (GLAPIENTRY * PFNGLDRAWELEMENTSINSTANCEDEXTPROC) (GLenum mode, GLsizei count, GLenum type, const void *val, GLsizei primcount);
 
 #define glDrawArraysInstancedEXT GLEW_GET_FUN(__glewDrawArraysInstancedEXT)
 #define glDrawElementsInstancedEXT GLEW_GET_FUN(__glewDrawElementsInstancedEXT)
@@ -10449,7 +10449,7 @@ typedef void (GLAPIENTRY * PFNGLDRAWELEMENTSINSTANCEDEXTPROC) (GLenum mode, GLsi
 #define GL_MAX_ELEMENTS_VERTICES_EXT 0x80E8
 #define GL_MAX_ELEMENTS_INDICES_EXT 0x80E9
 
-typedef void (GLAPIENTRY * PFNGLDRAWRANGEELEMENTSEXTPROC) (GLenum mode, GLuint start, GLuint end, GLsizei count, GLenum type, const void *indices);
+typedef void (GLAPIENTRY * PFNGLDRAWRANGEELEMENTSEXTPROC) (GLenum mode, GLuint start, GLuint end, GLsizei count, GLenum type, const void *val);
 
 #define glDrawRangeElementsEXT GLEW_GET_FUN(__glewDrawRangeElementsEXT)
 
@@ -11280,7 +11280,7 @@ typedef void (GLAPIENTRY * PFNGLIMPORTMEMORYWIN32NAMEEXTPROC) (GLuint memory, GL
 #define GL_EXT_multi_draw_arrays 1
 
 typedef void (GLAPIENTRY * PFNGLMULTIDRAWARRAYSEXTPROC) (GLenum mode, const GLint* first, const GLsizei *count, GLsizei primcount);
-typedef void (GLAPIENTRY * PFNGLMULTIDRAWELEMENTSEXTPROC) (GLenum mode, GLsizei* count, GLenum type, const void *const *indices, GLsizei primcount);
+typedef void (GLAPIENTRY * PFNGLMULTIDRAWELEMENTSEXTPROC) (GLenum mode, GLsizei* count, GLenum type, const void *const *val, GLsizei primcount);
 
 #define glMultiDrawArraysEXT GLEW_GET_FUN(__glewMultiDrawArraysEXT)
 #define glMultiDrawElementsEXT GLEW_GET_FUN(__glewMultiDrawElementsEXT)
@@ -11396,7 +11396,7 @@ typedef void (GLAPIENTRY * PFNGLFRAMEBUFFERTEXTURE2DMULTISAMPLEEXTPROC) (GLenum 
 #define GL_MULTIVIEW_EXT 0x90F1
 #define GL_MAX_MULTIVIEW_BUFFERS_EXT 0x90F2
 
-typedef void (GLAPIENTRY * PFNGLDRAWBUFFERSINDEXEDEXTPROC) (GLint n, const GLenum* location, const GLint *indices);
+typedef void (GLAPIENTRY * PFNGLDRAWBUFFERSINDEXEDEXTPROC) (GLint n, const GLenum* location, const GLint *val);
 typedef void (GLAPIENTRY * PFNGLGETINTEGERI_VEXTPROC) (GLenum target, GLuint index, GLint* data);
 typedef void (GLAPIENTRY * PFNGLREADBUFFERINDEXEDEXTPROC) (GLenum src, GLint index);
 
@@ -13881,7 +13881,7 @@ typedef void (GLAPIENTRY * PFNGLIMAGETRANSFORMPARAMETERIVHPPROC) (GLenum target,
 #define GL_IBM_multimode_draw_arrays 1
 
 typedef void (GLAPIENTRY * PFNGLMULTIMODEDRAWARRAYSIBMPROC) (const GLenum* mode, const GLint *first, const GLsizei *count, GLsizei primcount, GLint modestride);
-typedef void (GLAPIENTRY * PFNGLMULTIMODEDRAWELEMENTSIBMPROC) (const GLenum* mode, const GLsizei *count, GLenum type, const void *const *indices, GLsizei primcount, GLint modestride);
+typedef void (GLAPIENTRY * PFNGLMULTIMODEDRAWELEMENTSIBMPROC) (const GLenum* mode, const GLsizei *count, GLenum type, const void *const *val, GLsizei primcount, GLint modestride);
 
 #define glMultiModeDrawArraysIBM GLEW_GET_FUN(__glewMultiModeDrawArraysIBM)
 #define glMultiModeDrawElementsIBM GLEW_GET_FUN(__glewMultiModeDrawElementsIBM)
@@ -15523,7 +15523,7 @@ typedef void (GLAPIENTRY * PFNGLDRAWBUFFERSNVPROC) (GLsizei n, const GLenum* buf
 #define GL_NV_draw_instanced 1
 
 typedef void (GLAPIENTRY * PFNGLDRAWARRAYSINSTANCEDNVPROC) (GLenum mode, GLint first, GLsizei count, GLsizei primcount);
-typedef void (GLAPIENTRY * PFNGLDRAWELEMENTSINSTANCEDNVPROC) (GLenum mode, GLsizei count, GLenum type, const void *indices, GLsizei primcount);
+typedef void (GLAPIENTRY * PFNGLDRAWELEMENTSINSTANCEDNVPROC) (GLenum mode, GLsizei count, GLenum type, const void *val, GLsizei primcount);
 
 #define glDrawArraysInstancedNV GLEW_GET_FUN(__glewDrawArraysInstancedNV)
 #define glDrawElementsInstancedNV GLEW_GET_FUN(__glewDrawElementsInstancedNV)

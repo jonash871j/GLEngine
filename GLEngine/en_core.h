@@ -7,6 +7,7 @@ namespace Engine
 	{
 	public:
 		static void Initialize();
+		static void Unitialize();
 
 	public:
 		static void GLLogClearError();
