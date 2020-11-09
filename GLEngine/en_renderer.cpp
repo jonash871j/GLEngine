@@ -45,6 +45,8 @@ namespace Engine
 	}
 	void Renderer::Mesh(Engine::Mesh* mesh, ShaderProgram* shaderProgram, Texture* texture)
 	{
+		mesh->position.x = 2.0f * (mesh->position.x / w) - 0.5f;
+		mesh->position.y = 2.0f * (mesh->position.y / h) + 0.5f;
 		mesh->UpdateMatrix();
 
 		DGL_CALL(glBindVertexArray(mesh->VAO));
@@ -67,6 +69,12 @@ namespace Engine
 			glDrawArrays(GL_TRIANGLES, 0, mesh->verticies->length);
 		else
 			glDrawElements(GL_TRIANGLES, mesh->indicies->length, GL_UNSIGNED_INT, 0);
+	}
+	void Renderer::Sprite(Engine::Sprite* sprite, Vector2D position, float angle)
+	{
+		sprite->mesh->position = { position.x, position.y, 0.0f };
+		sprite->mesh->rotation.z = angle;
+		Mesh(sprite->mesh, sprite->shaderProgram, sprite->texture);
 	}
 	void Renderer::Update()
 	{

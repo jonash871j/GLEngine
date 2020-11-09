@@ -20,3 +20,5 @@
 
 #include "en_shader_program.h"
 #include "en_shader.h"
+
+#include "en_sprite.h"

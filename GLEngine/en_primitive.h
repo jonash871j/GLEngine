@@ -12,6 +12,7 @@ namespace Engine
 		Indices* indicies = nullptr;
 
 	public:
+		Primitive();
 		Primitive(Verticies* verticies, Indices* indicies);
 
 	public:

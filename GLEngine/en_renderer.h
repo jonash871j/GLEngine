@@ -3,6 +3,7 @@
 #include "en_mesh.h"
 #include "en_shader_program.h"
 #include "en_texture.h"
+#include "en_sprite.h"
 
 namespace Engine
 {
@@ -35,6 +36,7 @@ namespace Engine
 	
 	public:
 		void Mesh(Mesh* mesh, ShaderProgram* shaderProgram = nullptr, Texture* texture = nullptr);
+		void Sprite(Sprite* sprite, Vector2D position, float angle);
 
 	public:
 		void Update();

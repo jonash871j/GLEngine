@@ -1,0 +1,2 @@
+C:/Users/jona871j/source/repos/jonash871j/GLEngine/GLEngine/Dependencies/GLM/include/out/build/x64-Debug (default)/CMakeFiles/edit_cache.dir
+C:/Users/jona871j/source/repos/jonash871j/GLEngine/GLEngine/Dependencies/GLM/include/out/build/x64-Debug (default)/CMakeFiles/rebuild_cache.dir

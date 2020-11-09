@@ -3,6 +3,8 @@
 
 namespace Engine
 {
+	const float Math::PI = 3.14159265358979323846f;
+
 	float Math::Pow(float x, float y)
 	{
 		return powf(x, y);

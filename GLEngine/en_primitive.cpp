@@ -2,6 +2,9 @@
 
 namespace Engine
 {
+	Primitive::Primitive()
+	{
+	}
 	Primitive::Primitive(Verticies* verticies, Indices* indicies)
 		: verticies(verticies), indicies(indicies)
 	{

@@ -34,15 +34,12 @@ int main()
 	glBlendFunc(GL_SRC0_ALPHA, GL_ONE_MINUS_SRC_ALPHA);
 	glPolygonMode(GL_FRONT_AND_BACK, GL_FILL);
 	
-	Primitive square = Primitive::CreateSquare();
-	Mesh mesh1(square);
-	Mesh mesh2(square);
-
-	Texture texture1("Images/Alien.png");
-	Texture texture2("Images/Bricks.png");
+	Sprite sprite("Images/Bricks.png", &coreProgram);
 
 	float xPos = 0.0f;
 	float yPos = 0.0f;
+
+	float angle = 0.0f;
 
 	while (!window.GetIsClosed())
 	{
@@ -51,21 +48,30 @@ int main()
 		if (input.KeyPressed(Key::Escape))
 			window.Close();
 
-		yPos += float(input.KeyState(Key::Up) - input.KeyState(Key::Down)) / 32.0f;
-		xPos += float(input.KeyState(Key::Right) - input.KeyState(Key::Left)) / 32.0f;
 
-		if (input.MouseState(MouseButton::Left))
-			renderer.Color(32, 255, 64);
-		else
-			renderer.Color(0, 0, 64);
+		if (input.KeyState(Key::D))
+			angle += 1.0f;
+		if (input.KeyState(Key::A))
+			angle -= 1.0f;
 
-		mesh1.GetPosition() = glm::vec3(xPos, yPos, 0.0f);
-		mesh2.GetPosition() -= glm::vec3(0.001f, 0.0f, 0.0f);
-	
+		if (angle > 359.0f)
+			angle = 0.0f;
+		if (angle < 0.0f)
+			angle = 359.0f;
+
+		if (input.KeyState(Key::W))
+		{
+			xPos += Math::Sin(angle * Math::PI / 180) * 0.1f;
+			yPos += Math::Cos(angle * Math::PI / 180) * 0.1f;
+		}
+		Console::PrintMsg("%f", angle);
+
+		/*mesh1.GetPosition() = glm::vec3(xPos, yPos, 0.0f);
+		mesh2.GetPosition() -= glm::vec3(0.0001f, 0.0f, 0.0f);
+	*/
 		renderer.Background();
-		renderer.Mesh(&mesh1, &coreProgram, &texture1);
-		renderer.Mesh(&mesh2, &coreProgram, &texture2);
-
+		renderer.Sprite(&sprite, { xPos, yPos }, 0.0f);
+		
 		window.Update();
 
 		// Not working
