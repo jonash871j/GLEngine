@@ -165,6 +165,8 @@ namespace Engine
 
 	private:
 		void UpdateProperties(Window* window);
+
+	public:
 		void Update();
 
 	public:

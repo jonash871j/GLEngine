@@ -18,7 +18,10 @@ namespace Engine
 	void Image::ClearMemory()
 	{
 		if (pixels)
+		{
 			SOIL_free_image_data(pixels);
+			pixels = nullptr;
+		}
 	}
 	void Image::Load(const char* path)
 	{
@@ -44,7 +47,7 @@ namespace Engine
 		this->pixels = pixels;
 		this->path = path;
 
-		Console::PrintSuccess("Image %s was loaded", path);
+		D_CALL(Console::PrintSuccess("Image %s was loaded", path));
 	}
 	int32_t Image::GetWidth()
 	{

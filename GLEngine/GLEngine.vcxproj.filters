@@ -56,6 +56,9 @@
     <ClCompile Include="en_texture.cpp">
       <Filter>Engine\Drawing</Filter>
     </ClCompile>
+    <ClCompile Include="en_time.cpp">
+      <Filter>Engine\Window</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="en_def.h">
@@ -120,6 +123,9 @@
     </ClInclude>
     <ClInclude Include="en_texture.h">
       <Filter>Engine\Drawing</Filter>
+    </ClInclude>
+    <ClInclude Include="en_time.h">
+      <Filter>Engine\Window</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>

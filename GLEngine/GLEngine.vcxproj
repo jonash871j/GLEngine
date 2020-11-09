@@ -164,6 +164,7 @@
     <ClCompile Include="en_primitive.cpp" />
     <ClCompile Include="en_sprite.cpp" />
     <ClCompile Include="en_texture.cpp" />
+    <ClCompile Include="en_time.cpp" />
     <ClCompile Include="en_vector2d.cpp" />
     <ClCompile Include="en_vector3d.cpp" />
     <ClCompile Include="en_vertex.cpp" />
@@ -188,6 +189,7 @@
     <ClInclude Include="en_primitive.h" />
     <ClInclude Include="en_sprite.h" />
     <ClInclude Include="en_texture.h" />
+    <ClInclude Include="en_time.h" />
     <ClInclude Include="en_vector2d.h" />
     <ClInclude Include="en_vector3d.h" />
     <ClInclude Include="en_vertex.h" />

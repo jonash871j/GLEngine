@@ -16,6 +16,18 @@ namespace Engine
 		h = (float)window->height;
 	}
 
+	void Renderer::Update()
+	{
+		DGLFW_CALL(glfwSwapBuffers(window->glfwWindow));
+		glfwSwapInterval(0); // FPS Limiter, 0 = none
+		DGL_CALL(glFlush());
+	}
+
+	void Renderer::Clear()
+	{
+		DGL_CALL(glClear(GL_COLOR_BUFFER_BIT | GL_DEPTH_BUFFER_BIT | GL_STENCIL_BUFFER_BIT));
+	}
+
 	void Renderer::Color(uint8_t r, uint8_t g, uint8_t b, uint8_t a)
 	{
 		c = { r, g, b, a };
@@ -43,10 +55,8 @@ namespace Engine
 		glVertex2f(x2, y2);
 		glEnd();
 	}
-	void Renderer::Mesh(Engine::Mesh* mesh, ShaderProgram* shaderProgram, Texture* texture)
+	void Renderer::Mesh(Engine::Mesh* mesh, Texture* texture)
 	{
-		mesh->position.x = 2.0f * (mesh->position.x / w) - 0.5f;
-		mesh->position.y = 2.0f * (mesh->position.y / h) + 0.5f;
 		mesh->UpdateMatrix();
 
 		DGL_CALL(glBindVertexArray(mesh->VAO));
@@ -64,25 +74,20 @@ namespace Engine
 			DGL_CALL(glUniformMatrix4fv(glGetUniformLocation(shaderProgram->GetId(), "Matrix"), 1, false, glm::value_ptr(mesh->matrix)));
 		}
 		
-
 		if (mesh->indicies->length == 0)
 			glDrawArrays(GL_TRIANGLES, 0, mesh->verticies->length);
 		else
 			glDrawElements(GL_TRIANGLES, mesh->indicies->length, GL_UNSIGNED_INT, 0);
 	}
-	void Renderer::Sprite(Engine::Sprite* sprite, Vector2D position, float angle)
+	void Renderer::Sprite(Engine::Sprite* sprite, Vector2D position)
 	{
 		sprite->mesh->position = { position.x, position.y, 0.0f };
-		sprite->mesh->rotation.z = angle;
-		Mesh(sprite->mesh, sprite->shaderProgram, sprite->texture);
+		sprite->mesh->scale = { sprite->width / w, sprite->height / h, 0.0f };
+
+		Mesh(sprite->mesh, sprite->texture);
 	}
-	void Renderer::Update()
+	void Renderer::SetShaderProgram(ShaderProgram* shaderProgram)
 	{
-		DGLFW_CALL(glfwSwapBuffers(window->glfwWindow));
-		DGL_CALL(glFlush());
-	}
-	void Renderer::Clear()
-	{
-		DGL_CALL(glClear(GL_COLOR_BUFFER_BIT | GL_DEPTH_BUFFER_BIT | GL_STENCIL_BUFFER_BIT));
+		this->shaderProgram = shaderProgram;
 	}
 }

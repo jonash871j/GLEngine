@@ -65,13 +65,13 @@ namespace Engine
 	{
 		using namespace glm;
 
-		matrix = mat4(1.f);
-		matrix = translate(matrix, origin);
-		matrix = rotate(matrix, radians(rotation.x), vec3(1.f, 0.f, 0.f));
-		matrix = rotate(matrix, radians(rotation.y), vec3(0.f, 1.f, 0.f));
-		matrix = rotate(matrix, radians(rotation.z), vec3(0.f, 0.f, 1.f));
-		matrix = translate(matrix, position - origin);
+		matrix = glm::mat4(1.f);
+		//matrix = translate(matrix, origin);
 		matrix = glm::scale(matrix, scale);
+		//matrix = rotate(matrix, radians(rotation.x), vec3(1.f, 0.f, 0.f));
+		//matrix = rotate(matrix, radians(rotation.y), vec3(0.f, 1.f, 0.f));
+		//matrix = rotate(matrix, radians(rotation.z), vec3(0.f, 0.f, 1.f));
+		matrix = translate(matrix, position - origin);
 	}
 	glm::mat4& Mesh::GetMatrix()
 	{

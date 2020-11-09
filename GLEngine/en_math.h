@@ -23,6 +23,7 @@ namespace Engine
 
 		static float Abs(float x);
 		static float Floor(float x);
+		static float Round(float x);
 		static float Ceil(float x);
 		static float Sign(float x);
 

@@ -2,6 +2,7 @@
 #include "en_def.h"
 #include "en_renderer.h"
 #include "en_input.h"
+#include "en_time.h"
 
 namespace Engine
 {
@@ -20,6 +21,7 @@ namespace Engine
 	private:
 		Renderer renderer;
 		Input input;
+		Time time;
 
 	private:
 		GLFWwindow* glfwWindow = nullptr;
@@ -32,6 +34,7 @@ namespace Engine
 		void UpdateEvents();
 		void UpdateRenderer();
 		void UpdateInput();
+		void UpdateTime();
 		void Update();
 
 	public:
@@ -43,6 +46,7 @@ namespace Engine
 		bool GetIsClosed();
 		Renderer& GetRenderer();
 		Input& GetInput();
+		Time& GetTime();
 		GLFWwindow* GetGLFWWindow();
 	};
 }

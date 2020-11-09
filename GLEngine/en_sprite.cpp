@@ -2,14 +2,20 @@
 
 namespace Engine
 {
-	Sprite::Sprite(const char* path, ShaderProgram* shaderProgram)
+	Sprite::Sprite(const char* path)
 	{
-		this->texture = new Texture(path);
+		texture = new Texture(path);
+		width = (float)texture->width;
+		height = (float)texture->height;
 
-		this->primitive = Primitive::CreateSquare();
-		this->mesh = new Mesh(primitive);
-
-		this->shaderProgram = shaderProgram;
+		primitive = Primitive::CreateSquare();
+		mesh = new Mesh(primitive);
+	}
+	Sprite::Sprite(const char* path, float width, float height)
+		: Sprite(path)
+	{
+		this->width = width;
+		this->height = height;
 	}
 	Sprite::~Sprite()
 	{

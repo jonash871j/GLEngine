@@ -32,6 +32,15 @@ namespace Engine
 		}
 		isGlewInitialized = true;
 
+		// Gl options
+		glEnable(GL_DEPTH_TEST);
+		glEnable(GL_CULL_FACE);
+		glEnable(GL_BLEND);
+		glCullFace(GL_BACK);
+		glFrontFace(GL_CCW);
+		glBlendFunc(GL_SRC0_ALPHA, GL_ONE_MINUS_SRC_ALPHA);
+		glPolygonMode(GL_FRONT_AND_BACK, GL_FILL);
+
 		renderer.UpdateProperties(this);
 		input.UpdateProperties(this);
 
@@ -39,6 +48,7 @@ namespace Engine
 		Console::PrintMsg("Dimensions %ix%i", width, height);
 		Console::PrintMsg("OpenGL version: %s", glGetString(GL_VERSION));
 
+		renderer.Clear();
 		renderer.Color(32, 32, 32);
 		renderer.Background();
 		Update();
@@ -51,7 +61,6 @@ namespace Engine
 
 	void Window::UpdateEvents()
 	{
-		renderer.Clear();
 		GLFW_CALL(glfwPollEvents());
 
 		if (!isClosed)
@@ -63,16 +72,22 @@ namespace Engine
 	void Window::UpdateRenderer()
 	{
 		renderer.Update();
+		renderer.Clear();
 	}
 	void Window::UpdateInput()
 	{
 		input.Update();
+	}
+	void Window::UpdateTime()
+	{
+		time.Update();
 	}
 	void Window::Update()
 	{
 		UpdateRenderer();
 		UpdateEvents();
 		UpdateInput();
+		UpdateTime();
 	}
 
 	void Window::Target()
@@ -101,6 +116,10 @@ namespace Engine
 	Input& Window::GetInput()
 	{
 		return input;
+	}
+	Time& Window::GetTime()
+	{
+		return time;
 	}
 	GLFWwindow* Window::GetGLFWWindow()
 	{

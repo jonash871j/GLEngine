@@ -12,13 +12,17 @@ namespace Engine
 	{
 		friend class Renderer;
 	private:
-		ShaderProgram* shaderProgram = nullptr;
 		Texture* texture = nullptr;
 		Mesh* mesh = nullptr;
 		Primitive primitive;
+		
+	private:
+		float width;
+		float height;
 
 	public:
-		Sprite(const char* path, ShaderProgram* shaderProgram);
+		Sprite(const char* path);
+		Sprite(const char* path, float width, float height);
 		~Sprite();
 	};
 }

@@ -8,6 +8,7 @@
 
 #include "en_renderer.h"
 #include "en_input.h"
+#include "en_time.h"
 #include "en_window.h"
 
 #include "en_vertex.h"

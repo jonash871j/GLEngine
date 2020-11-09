@@ -7,13 +7,12 @@ namespace Engine
 	class Texture
 	{
 	public:
-		Image* image = nullptr;
+		uint32_t width;
+		uint32_t height;
 		uint32_t id = 0;
 
 	public:
 		Texture(const char* path);
 		~Texture();
-
-	public:
 	};
 }

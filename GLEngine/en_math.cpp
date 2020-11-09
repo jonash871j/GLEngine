@@ -75,6 +75,11 @@ namespace Engine
 		return floorf(x);
 	}
 
+	float Math::Round(float x)
+	{
+		return roundf(x);
+	}
+
 	float Math::Ceil(float x)
 	{
 		return ceilf(x);
