@@ -9,7 +9,7 @@ int main()
 	// https://www.youtube.com/watch?v=oNNFazrxy6Q
 	Core::Initialize();
 
-	Window window(800, 600, "Program");
+	Window window(800, 800, "Program");
 	Renderer& renderer = window.GetRenderer();
 	Input& input = window.GetInput();
 	Time& time = window.GetTime();
@@ -20,7 +20,7 @@ int main()
 	coreProgram.Link(); 
 	renderer.SetShaderProgram(&coreProgram);
 
-	Sprite sprite("Images/Alien.png");
+	Sprite sprite("Images/Alien.png", 64, 64);
 
 	Vector2D vector;
 
@@ -36,7 +36,8 @@ int main()
 
 		renderer.Sprite(&sprite, { 0, 0 });
 
-		Console::PrintMsg("%f %f", Math::Round(time.GetAvgFPS()));
+
+
 
 
 		window.Update();

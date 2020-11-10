@@ -22,5 +22,13 @@ namespace Engine
 		delete texture;
 		delete mesh;
 	}
+	float Sprite::GetWidth()
+	{
+		return width;
+	}
+	float Sprite::GetHeight()
+	{
+		return height;
+	}
 }
 

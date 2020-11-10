@@ -74,15 +74,18 @@ namespace Engine
 			DGL_CALL(glUniformMatrix4fv(glGetUniformLocation(shaderProgram->GetId(), "Matrix"), 1, false, glm::value_ptr(mesh->matrix)));
 		}
 		
-		if (mesh->indicies->length == 0)
+		if (mesh->indicies->length  == 0)
 			glDrawArrays(GL_TRIANGLES, 0, mesh->verticies->length);
 		else
 			glDrawElements(GL_TRIANGLES, mesh->indicies->length, GL_UNSIGNED_INT, 0);
 	}
 	void Renderer::Sprite(Engine::Sprite* sprite, Vector2D position)
 	{
-		sprite->mesh->position = { position.x, position.y, 0.0f };
-		sprite->mesh->scale = { sprite->width / w, sprite->height / h, 0.0f };
+		float dW = sprite->width / w;
+		float dH = sprite->height / h;
+
+		sprite->mesh->position = { 2.0f * position.x / w - 1.0f, 2.0f * position.y / h - 1.0f, 0.0f };
+		sprite->mesh->scale = { dW, dH, 0.0f };
 
 		Mesh(sprite->mesh, sprite->texture);
 	}

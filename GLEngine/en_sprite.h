@@ -24,5 +24,9 @@ namespace Engine
 		Sprite(const char* path);
 		Sprite(const char* path, float width, float height);
 		~Sprite();
+
+	public:
+		float GetWidth();
+		float GetHeight();
 	};
 }
