@@ -30,7 +30,12 @@ namespace Engine
 			Console::PrintError("Couldn't initialize glewInit");
 			abort();
 		}
+
 		isGlewInitialized = true;
+
+		this->width = width;
+		this->height = height;
+		this->title = title;
 
 		// Gl options
 		glEnable(GL_DEPTH_TEST);

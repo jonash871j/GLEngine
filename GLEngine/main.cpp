@@ -9,7 +9,7 @@ int main()
 	// https://www.youtube.com/watch?v=oNNFazrxy6Q
 	Core::Initialize();
 
-	Window window(800, 800, "Program");
+	Window window(800, 600, "Program");
 	Renderer& renderer = window.GetRenderer();
 	Input& input = window.GetInput();
 	Time& time = window.GetTime();
@@ -34,7 +34,7 @@ int main()
 
 		renderer.Background();
 
-		renderer.Sprite(&sprite, { 0, 0 });
+		renderer.Sprite(&sprite, { 200, 0 });
 
 
 
