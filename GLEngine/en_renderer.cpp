@@ -81,7 +81,11 @@ namespace Engine
 	}
 	void Renderer::Sprite(Engine::Sprite* sprite, Vector2D position)
 	{
-		sprite->mesh->position = { -(w / sprite->width) + ((1.0f / (w / sprite->width)) * position.x), 1.0f, 0.0f };
+		float x = (2.0f * (position.x + sprite->width / 2.0f) / w - 1.0f) * (w / sprite->width);
+		float y = -(2.0f * (position.y + sprite->height / 2.0f) / h - 1.0f) * (h / sprite->height);
+		//float wDS = sprite->width / w;
+
+		sprite->mesh->position = { x, y, 0.0f };
 		sprite->mesh->scale = { sprite->width / w, sprite->height / h, 0.0f };
 
 		Mesh(sprite->mesh, sprite->texture);

@@ -30,14 +30,14 @@ int main()
 			window.Close();
 
 		vector.x += (input.KeyState(Key::D) - input.KeyState(Key::A)) * time.GetDeltaTime() * 100.0f;
-		vector.y += (input.KeyState(Key::W) - input.KeyState(Key::S)) * time.GetDeltaTime() * 100.0f;
+		vector.y += (input.KeyState(Key::S) - input.KeyState(Key::W)) * time.GetDeltaTime() * 100.0f;
 
 		renderer.Background();
 
-		renderer.Sprite(&sprite, { 200, 0 });
+		renderer.Sprite(&sprite, vector);
 
 
-
+		Console::PrintMsg("X: %f Y: %f", vector.x, vector.y);
 
 
 		window.Update();
