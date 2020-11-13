@@ -79,14 +79,18 @@ namespace Engine
 		else
 			glDrawElements(GL_TRIANGLES, mesh->indicies->length, GL_UNSIGNED_INT, 0);
 	}
-	void Renderer::Sprite(Engine::Sprite* sprite, Vector2D position)
+	void Renderer::Sprite (Engine::Sprite* sprite, const Vector2D& position, const Vector2D& size, const float rotation)
 	{
-		float x = (2.0f * (position.x + sprite->width / 2.0f) / w - 1.0f) * (w / sprite->width);
-		float y = -(2.0f * (position.y + sprite->height / 2.0f) / h - 1.0f) * (h / sprite->height);
-		//float wDS = sprite->width / w;
+		const Vector2D spriteSize = { sprite->width * size.x, sprite->height * size.y };
 
-		sprite->mesh->position = { x, y, 0.0f };
-		sprite->mesh->scale = { sprite->width / w, sprite->height / h, 0.0f };
+		sprite->mesh->position = 
+		{ 
+			(2.0f * (position.x + spriteSize.x / 2.0f) / w - 1.0f) * (w / spriteSize.x),
+			-(2.0f * (position.y + spriteSize.y / 2.0f) / h - 1.0f) * (h / spriteSize.y),
+			0.0f 
+		};
+		sprite->mesh->scale = { spriteSize.x / w, spriteSize.y / h, 0.0f };
+		sprite->mesh->rotation = { 0, 0, rotation };
 
 		Mesh(sprite->mesh, sprite->texture);
 	}
