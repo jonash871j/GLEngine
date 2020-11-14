@@ -16,5 +16,8 @@ namespace Engine
 
 	public:
 		uint32_t& GetId();
+
+	public:
+		static ShaderProgram CreateSpriteProgram();
 	};
 }

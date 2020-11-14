@@ -38,10 +38,9 @@ namespace Engine
 	public:
 		void Color(uint8_t r, uint8_t g, uint8_t b, uint8_t a = 255);
 		void Background();
-		void Line(int32_t x1, int32_t y1, int32_t x2, int32_t y2);
 		void Line(float x1, float y1, float x2, float y2);
 		void Mesh(Mesh* mesh, Texture* texture = nullptr);
-		void Sprite(Sprite* sprite, const Vector2D& position = { 0.0f, 0.0f }, const Vector2D& size = { 1.0f, 1.0f }, const float rotation = 0.0f);
+		void Sprite(Sprite* sprite, const Vector2D& position = { 0.0f, 0.0f }, float rotation = 0.0f, const Vector2D& size = { 1.0f, 1.0f });
 
 	public:
 		void SetShaderProgram(ShaderProgram* shaderProgram);

@@ -11,8 +11,8 @@ namespace Engine
 		friend class Renderer;
 		friend class Input;
 	private:
-		uint16_t width = 800;
-		uint16_t height = 600;
+		uint16_t width = 800, height = 600;
+		uint8_t xScale = 1, yScale = 1;
 		const char* title = "Program";
 
 	private:
@@ -42,8 +42,19 @@ namespace Engine
 		void Close();
 
 	public:
+		void SetScaling(uint8_t xScale, uint8_t yScale);
+
+	public:
 		static bool GetIsGLEWInitialized();
 		bool GetIsClosed();
+
+		uint16_t GetWidth();
+		uint16_t GetHeight();
+		uint16_t GetActualWidth();
+		uint16_t GetActualHeight();
+		uint8_t GetXScale();
+		uint8_t GetYScale();
+
 		Renderer& GetRenderer();
 		Input& GetInput();
 		Time& GetTime();

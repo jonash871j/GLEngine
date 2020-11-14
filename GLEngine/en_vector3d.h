@@ -1,5 +1,6 @@
 #pragma once
 #include "en_def.h"
+#include "en_vector2d.h"
 
 namespace Engine
 {
@@ -12,6 +13,7 @@ namespace Engine
 		Vector3D();
 		Vector3D(float x, float y, float z);
 		Vector3D(int32_t x, int32_t y, int32_t z);
+		Vector3D(const Vector2D& v);
 		Vector3D(const Vector3D& v);
 
 	public:

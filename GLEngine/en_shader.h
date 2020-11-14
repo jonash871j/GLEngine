@@ -15,10 +15,12 @@ namespace Engine
 
 	public:
 		Shader();
+		Shader(const char* source, const char* name, Shader::Type type, ShaderProgram& program);
 		Shader(const char* path, Shader::Type type, ShaderProgram& program);
 		~Shader();
 
 	public:
+		void CreateShader(const char* source, const char* name, Shader::Type type, ShaderProgram& program);
 		void LoadShader(const char* path, Shader::Type type, ShaderProgram& program);
 	};
 }

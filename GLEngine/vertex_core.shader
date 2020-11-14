@@ -12,10 +12,9 @@ uniform mat4 Matrix;
 
 void main()
 {
-	vs_position = vec4(Matrix * vec4(vertex_position, 1.0f)).xyz;
-	vs_color = vertex_color;
+	//vs_position = vec4(Matrix * vec4(vertex_position, 1.0f)).xyz;
+	//vs_color = vertex_color;
 	vs_texcoord = vec2(vertex_texcoord.x, vertex_texcoord.y * -1.0f);
-
 	gl_Position = Matrix * vec4(vertex_position, 1.0f);
 
 	/*vs_position = vertex_position;

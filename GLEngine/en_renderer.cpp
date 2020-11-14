@@ -39,15 +39,6 @@ namespace Engine
 		glClearColor(0.003f * (float)c.r, 0.003f * (float)c.g, 0.003f * (float)c.b, 0.003f * (float)c.a);
 	}
 
-	void Renderer::Line(int32_t x1, int32_t y1, int32_t x2, int32_t y2)
-	{
-		float x1f = 2.0f * (float)x1 / w - 1.0f;
-		float y1f = 2.0f * (float)y1 / h - 1.0f;
-		float x2f = 2.0f * (float)x2 / w - 1.0f;
-		float y2f = 2.0f * (float)y2 / h - 1.0f;
-		Line(x1f, y1f, x2f, y2f);
-	}
-
 	void Renderer::Line(float x1, float y1, float x2, float y2)
 	{
 		glBegin(GL_LINES);
@@ -79,7 +70,7 @@ namespace Engine
 		else
 			glDrawElements(GL_TRIANGLES, mesh->indicies->length, GL_UNSIGNED_INT, 0);
 	}
-	void Renderer::Sprite (Engine::Sprite* sprite, const Vector2D& position, const Vector2D& size, const float rotation)
+	void Renderer::Sprite(Engine::Sprite* sprite, const Vector2D& position, float rotation, const Vector2D& size)
 	{
 		const Vector2D spriteSize = { sprite->width * size.x, sprite->height * size.y };
 
@@ -87,10 +78,10 @@ namespace Engine
 		{ 
 			(2.0f * (position.x + spriteSize.x / 2.0f) / w - 1.0f) * (w / spriteSize.x),
 			-(2.0f * (position.y + spriteSize.y / 2.0f) / h - 1.0f) * (h / spriteSize.y),
-			0.0f 
+			0.0f
 		};
 		sprite->mesh->scale = { spriteSize.x / w, spriteSize.y / h, 0.0f };
-		sprite->mesh->rotation = { 0, 0, rotation };
+		sprite->mesh->rotation = { 0, 0, rotation }; // Not working correctly
 
 		Mesh(sprite->mesh, sprite->texture);
 	}

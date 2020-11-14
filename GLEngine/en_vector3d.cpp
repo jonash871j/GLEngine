@@ -19,6 +19,11 @@ namespace Engine
 
 	}
 
+	Vector3D::Vector3D(const Vector2D& v)
+		: x(v.x), y(v.y), z(0.0f)
+	{
+	}
+
 	Vector3D::Vector3D(const Vector3D& v) 
 		: x(v.x), y(v.y), z(v.z)
 	{}

@@ -2,12 +2,6 @@
 <Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
   <ItemGroup>
     <ClCompile Include="main.cpp" />
-    <ClCompile Include="en_shader.cpp">
-      <Filter>Engine</Filter>
-    </ClCompile>
-    <ClCompile Include="en_shader_program.cpp">
-      <Filter>Engine</Filter>
-    </ClCompile>
     <ClCompile Include="en_core.cpp">
       <Filter>Engine</Filter>
     </ClCompile>
@@ -39,35 +33,35 @@
       <Filter>Engine\Math</Filter>
     </ClCompile>
     <ClCompile Include="en_vertex.cpp">
-      <Filter>Engine\Drawing</Filter>
+      <Filter>Engine\Drawable</Filter>
     </ClCompile>
     <ClCompile Include="en_verticies.cpp">
-      <Filter>Engine\Drawing</Filter>
+      <Filter>Engine\Drawable</Filter>
     </ClCompile>
     <ClCompile Include="en_indices.cpp">
-      <Filter>Engine\Drawing</Filter>
+      <Filter>Engine\Drawable</Filter>
     </ClCompile>
     <ClCompile Include="en_mesh.cpp">
-      <Filter>Engine\Drawing</Filter>
+      <Filter>Engine\Drawable</Filter>
     </ClCompile>
     <ClCompile Include="en_primitive.cpp">
-      <Filter>Engine\Drawing</Filter>
+      <Filter>Engine\Drawable</Filter>
     </ClCompile>
     <ClCompile Include="en_texture.cpp">
-      <Filter>Engine\Drawing</Filter>
+      <Filter>Engine\Drawable</Filter>
     </ClCompile>
     <ClCompile Include="en_time.cpp">
       <Filter>Engine\Window</Filter>
     </ClCompile>
+    <ClCompile Include="en_shader_program.cpp">
+      <Filter>Engine\Shader</Filter>
+    </ClCompile>
+    <ClCompile Include="en_shader.cpp">
+      <Filter>Engine\Shader</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="en_def.h">
-      <Filter>Engine</Filter>
-    </ClInclude>
-    <ClInclude Include="en_shader.h">
-      <Filter>Engine</Filter>
-    </ClInclude>
-    <ClInclude Include="en_shader_program.h">
       <Filter>Engine</Filter>
     </ClInclude>
     <ClInclude Include="engine.h">
@@ -107,25 +101,31 @@
       <Filter>Engine\Math</Filter>
     </ClInclude>
     <ClInclude Include="en_verticies.h">
-      <Filter>Engine\Drawing</Filter>
+      <Filter>Engine\Drawable</Filter>
     </ClInclude>
     <ClInclude Include="en_vertex.h">
-      <Filter>Engine\Drawing</Filter>
+      <Filter>Engine\Drawable</Filter>
     </ClInclude>
     <ClInclude Include="en_indices.h">
-      <Filter>Engine\Drawing</Filter>
+      <Filter>Engine\Drawable</Filter>
     </ClInclude>
     <ClInclude Include="en_mesh.h">
-      <Filter>Engine\Drawing</Filter>
+      <Filter>Engine\Drawable</Filter>
     </ClInclude>
     <ClInclude Include="en_primitive.h">
-      <Filter>Engine\Drawing</Filter>
+      <Filter>Engine\Drawable</Filter>
     </ClInclude>
     <ClInclude Include="en_texture.h">
-      <Filter>Engine\Drawing</Filter>
+      <Filter>Engine\Drawable</Filter>
     </ClInclude>
     <ClInclude Include="en_time.h">
       <Filter>Engine\Window</Filter>
+    </ClInclude>
+    <ClInclude Include="en_shader_program.h">
+      <Filter>Engine\Shader</Filter>
+    </ClInclude>
+    <ClInclude Include="en_shader.h">
+      <Filter>Engine\Shader</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>
@@ -141,7 +141,10 @@
     <Filter Include="Engine\Math">
       <UniqueIdentifier>{1beec5a4-5ea2-46c8-81be-f19283d283e2}</UniqueIdentifier>
     </Filter>
-    <Filter Include="Engine\Drawing">
+    <Filter Include="Engine\Shader">
+      <UniqueIdentifier>{940957bf-4b76-4301-92d4-1230e408c55f}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Engine\Drawable">
       <UniqueIdentifier>{45ce3b47-7c42-4deb-898e-d54b791c128a}</UniqueIdentifier>
     </Filter>
   </ItemGroup>

@@ -63,7 +63,7 @@ namespace Engine
 		double x = 0.0f;
 		double y = 0.0f;
 		glfwGetCursorPos(window->glfwWindow, &x, &y);
-		return Vector2D((float)x, (float)y);
+		return Vector2D((float)x / (float)window->xScale, (float)y / (float)window->yScale);
 	}
 	Vector2D Input::MouseDelta()
 	{

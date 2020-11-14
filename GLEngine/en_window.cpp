@@ -43,8 +43,9 @@ namespace Engine
 		glEnable(GL_BLEND);
 		glCullFace(GL_BACK);
 		glFrontFace(GL_CCW);
-		glBlendFunc(GL_SRC0_ALPHA, GL_ONE_MINUS_SRC_ALPHA);
+		glBlendFunc(GL_SRC_ALPHA, GL_ONE_MINUS_SRC_ALPHA);
 		glPolygonMode(GL_FRONT_AND_BACK, GL_FILL);
+
 
 		renderer.UpdateProperties(this);
 		input.UpdateProperties(this);
@@ -105,6 +106,15 @@ namespace Engine
 		isClosed = true;
 	}
 
+	void Window::SetScaling(uint8_t xScale, uint8_t yScale)
+	{
+		this->xScale = xScale;
+		this->yScale = yScale;
+
+		glfwSetWindowSize(glfwWindow, width * xScale, height * yScale);
+		glViewport(0, 0, width * xScale, height * yScale);
+	}
+
 	bool Window::GetIsGLEWInitialized()
 	{
 		return isGlewInitialized;
@@ -113,6 +123,30 @@ namespace Engine
 	bool Window::GetIsClosed()
 	{
 		return isClosed;
+	}
+	uint16_t Window::GetWidth()
+	{
+		return width * xScale;
+	}
+	uint16_t Window::GetHeight()
+	{
+		return height * yScale;
+	}
+	uint16_t Window::GetActualWidth()
+	{
+		return width;
+	}
+	uint16_t Window::GetActualHeight()
+	{
+		return height;
+	}
+	uint8_t Window::GetXScale()
+	{
+		return xScale;
+	}
+	uint8_t Window::GetYScale()
+	{
+		return yScale;
 	}
 	Renderer& Window::GetRenderer()
 	{
