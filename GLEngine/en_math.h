@@ -27,6 +27,8 @@ namespace Engine
 		static float Ceil(float x);
 		static float Sign(float x);
 
+		static float Mod(float x, float y);
+
 		static const float PI;
 	};
 }

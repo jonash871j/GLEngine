@@ -32,20 +32,17 @@ namespace Engine
 		glCreateVertexArrays(1, &VAO);
 		glBindVertexArray(this->VAO);
 
-		// GEN VBO AND BIND AND SEND DATA
 		glGenBuffers(1, &VBO);
 		glBindBuffer(GL_ARRAY_BUFFER, VBO);
 		glBufferData(GL_ARRAY_BUFFER, verticies->size, verticies->values, GL_STATIC_DRAW);
 
-		// GEN EBO AND BIND AND SEND DATA
 		if (indicies->length > 0)
 		{
 			glGenBuffers(1, &EBO);
 			glBindBuffer(GL_ELEMENT_ARRAY_BUFFER, EBO);
-			glBufferData(GL_ELEMENT_ARRAY_BUFFER, indicies->size, indicies->values, GL_STATIC_DRAW);
+			glBufferData(GL_ELEMENT_ARRAY_BUFFER, indicies->size, indicies->values, GL_DYNAMIC_DRAW);
 		}
 
-		// SET VERTEXATTRIBPOINTERS AND ENABLE (INPUT ASSEMBLY)
 		// Position
 		glVertexAttribPointer(0, 3, GL_FLOAT, GL_FALSE, sizeof(Vertex), (GLvoid*)offsetof(Vertex, position));
 		glEnableVertexAttribArray(0);
@@ -56,7 +53,6 @@ namespace Engine
 		glVertexAttribPointer(2, 2, GL_FLOAT, GL_FALSE, sizeof(Vertex), (GLvoid*)offsetof(Vertex, texCoord));
 		glEnableVertexAttribArray(2);
 
-		// BIND VAO 0
 		glBindVertexArray(0);
 
 		glBindTexture(GL_TEXTURE_2D, 0);

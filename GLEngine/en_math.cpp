@@ -91,4 +91,8 @@ namespace Engine
 		if (x < 0)		return -1.0f;
 		else			return  0.0f;
 	}
+	float Math::Mod(float x, float y)
+	{
+		return modff(x, &y);
+	}
 }

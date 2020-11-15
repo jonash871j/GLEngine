@@ -20,9 +20,6 @@
     <ClCompile Include="en_image.cpp">
       <Filter>Engine</Filter>
     </ClCompile>
-    <ClCompile Include="en_sprite.cpp">
-      <Filter>Engine</Filter>
-    </ClCompile>
     <ClCompile Include="en_vector2d.cpp">
       <Filter>Engine\Math</Filter>
     </ClCompile>
@@ -59,6 +56,9 @@
     <ClCompile Include="en_shader.cpp">
       <Filter>Engine\Shader</Filter>
     </ClCompile>
+    <ClCompile Include="en_sprite.cpp">
+      <Filter>Engine\Drawable</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="en_def.h">
@@ -83,9 +83,6 @@
       <Filter>Engine\Window</Filter>
     </ClInclude>
     <ClInclude Include="en_error.h">
-      <Filter>Engine</Filter>
-    </ClInclude>
-    <ClInclude Include="en_sprite.h">
       <Filter>Engine</Filter>
     </ClInclude>
     <ClInclude Include="en_image.h">
@@ -126,6 +123,9 @@
     </ClInclude>
     <ClInclude Include="en_shader.h">
       <Filter>Engine\Shader</Filter>
+    </ClInclude>
+    <ClInclude Include="en_sprite.h">
+      <Filter>Engine\Drawable</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>

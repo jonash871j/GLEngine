@@ -17,13 +17,16 @@ namespace Engine
 		Primitive primitive;
 		
 	private:
-		float width;
-		float height;
+		uint16_t width, height;
 
 	public:
-		Sprite(const char* path);
-		Sprite(const char* path, float width, float height);
+		Sprite(Texture* texture);  
+		Sprite(Texture* texture, uint16_t width, uint16_t height);
+		Sprite(Texture* texture, uint16_t width, uint16_t height, uint16_t xSheetPos, uint16_t ySheetPos = 0);
 		~Sprite();
+
+	public:
+		void SetSheetPosition(uint16_t xSheetPos, uint16_t ySheetPos = 0);
 
 	public:
 		float GetWidth();

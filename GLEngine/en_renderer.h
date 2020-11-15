@@ -40,7 +40,8 @@ namespace Engine
 		void Background();
 		void Line(float x1, float y1, float x2, float y2);
 		void Mesh(Mesh* mesh, Texture* texture = nullptr);
-		void Sprite(Sprite* sprite, const Vector2D& position = { 0.0f, 0.0f }, float rotation = 0.0f, const Vector2D& size = { 1.0f, 1.0f });
+		void Sprite(Engine::Sprite* sprite, const Vector2D& position = { 0.0f, 0.0f }, const Vector2D& sheetPos = { 0, 0 });
+		void SpriteEx(Engine::Sprite* sprite, const Vector2D& position = { 0.0f, 0.0f }, float rotation = 0.0f, const Vector2D& size = { 1.0f, 1.0f });
 
 	public:
 		void SetShaderProgram(ShaderProgram* shaderProgram);

@@ -7,12 +7,24 @@ namespace Engine
 	class Texture
 	{
 	public:
-		uint32_t width;
-		uint32_t height;
+		enum class Mode
+		{
+			Nearest = 0x2600,
+			Linear = 0x2601,
+		};
+
+	private:
+		uint16_t width;
+		uint16_t height;
 		uint32_t id = 0;
 
 	public:
-		Texture(const char* path);
+		Texture(const char* path, Texture::Mode mode = Mode::Nearest);
 		~Texture();
+
+	public:
+		uint16_t GetWidth();
+		uint16_t GetHeight();
+		uint32_t GetId();
 	};
 }

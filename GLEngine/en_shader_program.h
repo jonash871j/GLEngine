@@ -7,6 +7,7 @@ namespace Engine
 	{
 	private:
 		uint32_t id;
+		bool isLinked = false;
 
 	public:
 		ShaderProgram();
@@ -16,6 +17,7 @@ namespace Engine
 
 	public:
 		uint32_t& GetId();
+		bool GetIsLinked();
 
 	public:
 		static ShaderProgram CreateSpriteProgram();

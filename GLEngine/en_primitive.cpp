@@ -24,7 +24,7 @@ namespace Engine
 		return Primitive(new Verticies(verticies, 3), new Indices(indices, 3));
 	}
 	Primitive Primitive::CreateSquare(Vector3D color)
-	{
+	{  
 		Vertex* verticies = new Vertex[]
 		{
 			Vertex({-1.0f, 1.0f, 0.0f }, color, { 0.0f, 1.0f }),

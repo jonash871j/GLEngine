@@ -37,12 +37,18 @@ namespace Engine
 			Console::PrintBuffer(infoLog, 1024);
 			return;
 		}
-		
+		isLinked = true;
+
 		GL_CALL(glUseProgram(NULL));
 	}
 	uint32_t& ShaderProgram::GetId()
 	{
 		return id;
+	}
+
+	bool ShaderProgram::GetIsLinked()
+	{
+		return isLinked;
 	}
 
 	ShaderProgram ShaderProgram::CreateSpriteProgram()
@@ -51,13 +57,15 @@ namespace Engine
 
 		Shader fragment(
 			"#version 440\n"
-			"in vec3 vs_position;"
 			"in vec2 vs_texcoord;"
 			"out vec4 fs_color;"
 			"uniform sampler2D Texture;"
 			"void main()"
 			"{"
-			"	fs_color = texture(Texture, vs_texcoord);"
+			"	vec4 texColor = texture(Texture, vs_texcoord);"
+			"	if (texColor.a < 0.1)"
+			"		discard;"
+			"	fs_color = texColor;"
 			"}"
 			, 
 			"default_fragment_sprites", Shader::Type::Fragment, spriteProgram);
