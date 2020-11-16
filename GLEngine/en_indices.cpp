@@ -14,4 +14,8 @@ namespace Engine
 		if (values)
 			delete[] values;
 	}
+	uint32_t& Indices::operator[](int i)
+	{
+		return values[i];
+	}
 }

@@ -14,5 +14,8 @@ namespace Engine
 		Indices();
 		Indices(uint32_t* values, uint32_t length);
 		~Indices();
+
+	public:
+		uint32_t& operator[](int i);
 	};
 }

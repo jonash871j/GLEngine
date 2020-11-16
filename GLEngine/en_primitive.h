@@ -17,6 +17,6 @@ namespace Engine
 
 	public:
 		static Primitive CreateTriangle(Vector3D color = { 255, 255, 255 });
-		static Primitive CreateSquare(Vector3D color = { 255, 255, 255 });
+		static Primitive CreateSquare();
 	};
 }

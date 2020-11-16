@@ -15,5 +15,8 @@ namespace Engine
 		Verticies();
 		Verticies(Vertex* values, uint32_t length);
 		~Verticies();
+
+	public:
+		Vertex& operator[](int i);
 	};
 }

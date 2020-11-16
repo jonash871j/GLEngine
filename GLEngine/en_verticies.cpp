@@ -14,4 +14,8 @@ namespace Engine
 		if (values)
 			delete[] values;
 	}
+	Vertex& Verticies::operator[](int i)
+	{
+		return values[i];
+	}
 }

@@ -62,8 +62,11 @@ namespace Engine
 				glBindTexture(GL_TEXTURE_2D, texture->GetId());
 			}
 
+			glm::vec3 lightPos(0.0f, 1.0f, -2.0f);
+
 			DGL_CALL(glUseProgram(shaderProgram->GetId()));
 			DGL_CALL(glUniformMatrix4fv(glGetUniformLocation(shaderProgram->GetId(), "Matrix"), 1, false, glm::value_ptr(mesh->matrix)));
+			(glUniform3fv(glGetUniformLocation(shaderProgram->GetId(), "Light"), 1, glm::value_ptr(lightPos)));
 		}
 		
 		if (mesh->indicies->length == 0)
@@ -79,6 +82,9 @@ namespace Engine
 			-(2.0f * (Math::Round(position.y) + sprite->height / 2.0f) / h - 1.0f) * (h / sprite->height),
 			0.0f
 		};
+		sprite->mesh->scale = { sprite->width / w, sprite->height / h, 0.0f };
+		sprite->mesh->rotation = { 0.0f, 0.0f, 0.0f }; // Not working correctly
+
 		//https://stackoverflow.com/questions/27771902/opengl-changing-texture-coordinates-on-the-fly
 		//glBindBuffer(GL_ARRAY_BUFFER, sprite->mesh->VAO);
 		//glBufferSubData(GL_ARRAY_BUFFER, 0, sizeof(Vertex), &sprite->mesh->verticies->values->texCoord);
@@ -98,7 +104,6 @@ namespace Engine
 		};
 		sprite->mesh->scale = { spriteSize.x / w, spriteSize.y / h, 0.0f };
 		sprite->mesh->rotation = { 0, 0, rotation }; // Not working correctly
-		sprite->mesh->origin.x = 0.5f;
 		Mesh(sprite->mesh, sprite->texture);
 	}
 	void Renderer::SetShaderProgram(ShaderProgram* shaderProgram)
